@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=5.1.3" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+
+
+  <meta name="keywords" content="Python,pypi," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="zhongjiajie's garden" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言介绍如果将自己的程序制作成pypi包并发布到pypi">
+<meta name="keywords" content="Python,pypi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pypi安装包制作及发布">
+<meta property="og:url" content="https://zhongjiajie.github.io/2017/10/21/pypi安装包制作及发布/index.html">
+<meta property="og:site_name" content="zhongjiajie&#39;s garden">
+<meta property="og:description" content="前言介绍如果将自己的程序制作成pypi包并发布到pypi">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-10T02:32:58.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pypi安装包制作及发布">
+<meta name="twitter:description" content="前言介绍如果将自己的程序制作成pypi包并发布到pypi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://zhongjiajie.github.io/2017/10/21/pypi安装包制作及发布/"/>
+
+
+
+
+
+  <title>pypi安装包制作及发布 | zhongjiajie's garden</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e0d2eae395546d2562999c1123bc9ff4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhongjiajie's garden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-wiki">
+          <a href="https://github.com/zhongjiajie/zhongjiajie.github.com/wiki" rel="section">
+            
+            wiki
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhongjiajie.github.io/2017/10/21/pypi安装包制作及发布/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhongjiajie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhongjiajie's garden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">pypi安装包制作及发布</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-21T11:07:26+08:00">
+                2017-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/10/21/pypi安装包制作及发布/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/10/21/pypi安装包制作及发布/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2017/10/21/pypi安装包制作及发布/" class="leancloud_visitors" data-flag-title="pypi安装包制作及发布">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>介绍如果将自己的程序制作成pypi包并发布到<a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a></p>
+<a id="more"></a>
+<h1 id="pypi简介"><a href="#pypi简介" class="headerlink" title="pypi简介"></a>pypi简介</h1><p><a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a>全程是<strong>Python Package Index</strong>，其官方定义是</p>
+<blockquote>
+<p>The Python Package Index is a repository of software for the Python programming language. There are currently 119827 packages here.  – until 2017-10-21</p>
+</blockquote>
+<p>我们平常安装程序所用的<code>pip</code>就是到pypi中找到相应的库并将其安装到本地的，比如我们运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure></p>
+<p><code>pip</code>就会去pypi找到最符合<strong>requests</strong>的这个包，然后下载到本地，最后将其安装</p>
+<h1 id="pypi安装包制作"><a href="#pypi安装包制作" class="headerlink" title="pypi安装包制作"></a>pypi安装包制作</h1><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>pypi的库不允许有相同的名称，如果想要跟着教程完成相关的操作的话请先将教程的<code>zhongjiajie</code>改成你的名称（目的是在<a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a>找不到相应的库），才能完成库的上传操作</strong></p>
+<h2 id="普通库"><a href="#普通库" class="headerlink" title="普通库"></a>普通库</h2><p>这里的普通库指的是通过<code>from package import function</code>或<code>import package</code>方式调用的库，下面进行具体程序的演示，先切换到项目目录，这里是<strong>myproject</strong></p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd </span><br><span class="line"><span class="meta">$</span> cd Desktop/</span><br><span class="line"><span class="meta">$</span> mkdir myproject</span><br><span class="line"><span class="meta">$</span> cd myproject/</span><br></pre></td></tr></table></figure>
+<h3 id="定义库的功能"><a href="#定义库的功能" class="headerlink" title="定义库的功能"></a>定义库的功能</h3><p>创建文件夹<strong>zhongjiajiepypi</strong>并且在其中编写简单的Python函数<strong>myfunction.py</strong>及定义<strong><strong>init</strong>.py</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir zhongjiajiepypi</span><br><span class="line"><span class="meta">$</span> cd zhongjiajiepypi/</span><br><span class="line"><span class="meta">$</span> vim __init__.py       # 这个文件作用就是给这个文件夹打成包</span><br><span class="line"><span class="meta">$</span> vim myfunction.py     # 这里放置逻辑代码了</span><br></pre></td></tr></table></figure>
+<p>其中<strong>myfunction.py</strong>的内容为<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat myfunction.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def mysum(*args):</span><br><span class="line">    s = 0</span><br><span class="line">    for v in args:</span><br><span class="line">        i = float(v)</span><br><span class="line">        s += i</span><br><span class="line">    print s</span><br></pre></td></tr></table></figure></p>
+<p><strong><strong>init</strong>.py</strong>的内容为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat __init__.py</span><br><span class="line">from myfunction import mysum</span><br></pre></td></tr></table></figure>
+<h3 id="编写项目setup-py文件"><a href="#编写项目setup-py文件" class="headerlink" title="编写项目setup.py文件"></a>编写项目setup.py文件</h3><p><strong>这是重点</strong>：接着要编写pypi的setup文件，生成pip可以识别的格式，为后期上传到pypi做准备，我们先切换到<strong>myproject</strong>根目录，然后编辑<strong>setup.py</strong>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim setup.py         # 写入相应的setup.py内容 详见cat命令结果</span><br><span class="line"><span class="meta">$</span> cat setup.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name = "zhongjiajiepypi",</span><br><span class="line">    version = "0.0.1",</span><br><span class="line">    keywords = ("pip", "testpypi"),</span><br><span class="line">    description = "test pip module",</span><br><span class="line">    long_description = "test how to define pip module and upload to pypi",</span><br><span class="line">    license = "MIT",</span><br><span class="line"></span><br><span class="line">    url = "https://zhongjiajie.github.io",          # your module home page, such as </span><br><span class="line">    author = "zhongjiajie",                         # your name</span><br><span class="line">    author_email = "zhongjiajie955@hotmail.com",    # your email</span><br><span class="line"></span><br><span class="line">    packages = find_packages(),</span><br><span class="line">    include_package_data = True,</span><br><span class="line">    platforms = "any",</span><br><span class="line">    install_requires = []</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>这里我们需要注意一下，<strong>setup.py</strong>文件是能不能正确生成pip能识别文件的关键，他有自己的一套格式，我们编写setup文件要遵循这一套格式，实例代码是基础的设置，更多设置请查阅<a href="https://docs.python.org/3/distutils/setupscript.html#additional-meta-data" target="_blank" rel="noopener">Writing the Setup Script</a></p>
+<h3 id="打包pypi"><a href="#打包pypi" class="headerlink" title="打包pypi"></a>打包pypi</h3><p>此时整个包已经编写完成了，整个项目的文件结构是<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tree</span><br><span class="line">.</span><br><span class="line">├── zhongjiajiepypi</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   └── myfunction.py</span><br><span class="line">└── setup.py</span><br></pre></td></tr></table></figure></p>
+<p>现在我们需要将项目变成<strong>pip</strong>能够识别并安装的文件，在本地测试成功后将文件上传到<strong>pypi</strong>，在项目的根目录（setup.py同等位置）中运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> python setup.py sdist       # 生成二进制包 支持pip安装 推荐使用</span><br><span class="line"><span class="meta">$</span> python setup.py bdist_egg   # 生成egg 支持easy_install安装</span><br></pre></td></tr></table></figure>
+<p>Python会自动将项目打包成二进制包，此时项目的文件结构是</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tree</span><br><span class="line">.</span><br><span class="line">├── dist</span><br><span class="line">│   └── zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line">├── zhongjiajiepypi</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   └── myfunction.py</span><br><span class="line">├── zhongjiajiepypi.egg-info</span><br><span class="line">│   ├── dependency_links.txt</span><br><span class="line">│   ├── PKG-INFO</span><br><span class="line">│   ├── SOURCES.txt</span><br><span class="line">│   └── top_level.txt</span><br><span class="line">└── setup.py</span><br></pre></td></tr></table></figure>
+<p>此时已算完成了pypi的打包</p>
+<h3 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h3><p>建议在将包上传到pypi之前现在本地完成测试工作，方法是先进入<strong>dist</strong>文件夹，然后用<code>pip</code>命令安装本地的二进制包，安装完成后测试其中的方法是否可用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd dist</span><br><span class="line"><span class="meta">$</span> pip install zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line"><span class="meta">$</span> python -c "import zhongjiajiepypi; zhongjiajiepypi.mysum(3, 4, 5)"</span><br><span class="line">12.0</span><br></pre></td></tr></table></figure>
+<p>可以看到结果是12.0证明包能达到预期，可以上传到pypi</p>
+<h3 id="上传到pypi"><a href="#上传到pypi" class="headerlink" title="上传到pypi"></a>上传到pypi</h3><p><strong>注意</strong>: 部分旧版教程会说先运行<code>python setup.py register</code>进行注册，然后再运行<code>python setup.py sdist upload</code>将二进制包上传到pypi上，但是目前pypi已经可以不用注册直接运行<code>python setup.py sdist upload</code>完成上传。</p>
+<p>我们先尝试用<code>python setup.py register</code>，接着输入密码，结果收到下面的提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Registering zhongjiajiepypi to https://upload.pypi.org/legacy/</span><br><span class="line">Server response (410): Project pre-registration is no longer required or supported, so continue directly to uploading files.</span><br></pre></td></tr></table></figure>
+<p>可以看到确实不用先注册了，下面我们尝试直接运行<code>python setup.py sdist upload</code>，然后输入密码，结果让我吃了一斤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Submitting dist/zhongjiajiepypi-0.0.1.tar.gz to https://upload.pypi.org/legacy/</span><br><span class="line">Upload failed (403): Invalid or non-existent authentication information.</span><br><span class="line">error: Upload failed (403): Invalid or non-existent authentication information.</span><br></pre></td></tr></table></figure>
+<p>两种方法都不能将本地包上传到pypi，于是我google了原因，看到了github上面相关的链接<a href="https://github.com/pypa/setuptools/issues/941" target="_blank" rel="noopener">Invalid or non-existent authentication information</a>，要新建<code>$HOME/.pypirc</code>文件用于保存pypi的连接信息，尝试了<code>@dover247</code>的文件样例发现仍不能上传到pypi，然后看到<code>@jaraco</code>说那个版本有点旧，就去了<a href="https://docs.python.org/3.6/distutils/packageindex.html#pypirc" target="_blank" rel="noopener">The Python Package Index (PyPI)</a>使用了最新的样例，然后再运行<code>python setup.py sdist upload</code>就能上传成功了（注意国内网络环境访问pypi）</p>
+<h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><h3 id="CLI简介"><a href="#CLI简介" class="headerlink" title="CLI简介"></a>CLI简介</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2" target="_blank" rel="noopener">CLI</a>（command-line interface，命令行界面）是指可在用户提示符下键入可执行指令的界面，它通常不支持鼠标，用户通过键盘输入指令，计算机接收到指令后，予以执行。我个人的理解是通过命令行操作调用程序的接口，以达到我们的目的，好处是更加直观、并提供交互式的完成一些简单的操作</p>
+<h3 id="定义Python的CLI接口"><a href="#定义Python的CLI接口" class="headerlink" title="定义Python的CLI接口"></a>定义Python的CLI接口</h3><p>Python的CLI和Python的一般库的做法类似，不同的是它暴露了一个CLI的关键字，调用起来就类似于调用<code>python script_name.py args</code>的形式。他会在<code>$PYTHON_HOME/Scripts</code>生成可运行文件，命令行调用，下面我们把之前的例子改成CLI的调用方式，先修改<strong>zhongjiajiefunction.py</strong>文件，加上命令行传参的功能。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat zhongjiajiefunction.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def mysum(*args):</span><br><span class="line">    s = 0</span><br><span class="line">    for v in args:</span><br><span class="line">        i = float(v)</span><br><span class="line">        s += i</span><br><span class="line">    print s</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 从此是新加的功能</span><br><span class="line">def mysum_cli():</span><br><span class="line">    import sys</span><br><span class="line">    args = sys.argv[1:]</span><br><span class="line">    mysum(*args)</span><br></pre></td></tr></table></figure>
+<p>新加的<code>mysum_cli</code>提供了在命令行获取相关的参数，并将参数传递给原来的<code>mysum</code>函数。接着修改<strong>setup.py</strong>函数。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat setup.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name = "zhongjiajiepypi",</span><br><span class="line">    version = "0.0.1",</span><br><span class="line">    keywords = ("pip", "testpypi"),</span><br><span class="line">    description = "test pip module",</span><br><span class="line">    long_description = "test how to define pip module and upload to pypi",</span><br><span class="line">    license = "MIT",</span><br><span class="line"></span><br><span class="line">    url = "https://zhongjiajie.github.io",</span><br><span class="line">    author = "zhongjiajie",</span><br><span class="line">    author_email = "zhongjiajie955@hotmail.com",</span><br><span class="line"></span><br><span class="line">    packages = find_packages(),</span><br><span class="line">    include_package_data = True,</span><br><span class="line">    platforms = "any",</span><br><span class="line">    install_requires = [],</span><br><span class="line">    </span><br><span class="line">    # 此处起是增加的内容</span><br><span class="line">    entry_points = &#123;</span><br><span class="line">        'console_scripts': [</span><br><span class="line">            'mysum=zhongjiajiepypi.zhongjiajiefunction:mysum_cli',</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>可以看到只需要在配置中加上<code>entry_points</code>入口选项就行了，其中<code>console_scripts</code>中指定命令行中的关键字，此处为<code>mysum</code>，对应的是<code>zhongjiajiepypi</code>这个库的<code>zhongjiajiefunction</code>函数里面的<code>mysum_cli</code>方法。</p>
+<p>至此完成了CLI的配置，接着根据之前介绍的<a href="#打包pypi">打包pypi</a>的方法进行打包，然后本地测试运行就能得到我们想要的结果了，当和下面一样看到命令行调用<code>mysum 2 3 4</code>的结果是9.0的时候就说明CLI接口已经能正常运行了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> python setup.py sdist</span><br><span class="line"><span class="meta">$</span> cd dist</span><br><span class="line"><span class="meta">$</span> pip install zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line"><span class="meta">$</span> mysum 2 3 4</span><br><span class="line">9.0</span><br></pre></td></tr></table></figure>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ul>
+<li>由于pypi不能有同名的库，所以拿样例测试的时候要将名字改成pypi不存在的库名</li>
+<li>上传到pypi已经不用先注册，但要新建<code>$HOME/.pypirc</code>文件填入适当的内容</li>
+</ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a href="http://www.xiaoh.me/2015/12/11/python-egg/" target="_blank" rel="noopener">怎么制作pip安装包，Python Egg</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26159930" target="_blank" rel="noopener">如何将自己的程序发布到 PyPI</a></p>
+<p><a href="https://python-packaging.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">How To Package Your Python Code</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>万一真的有人打赏呢 >_<</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="zhongjiajie 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="zhongjiajie 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/pypi/" rel="tag"># pypi</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/30/美女图片API/" rel="next" title="美女图片API">
+                <i class="fa fa-chevron-left"></i> 美女图片API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/23/用github管理blog/" rel="prev" title="用github管理blog">
+                用github管理blog <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zhongjiajie</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhongjiajie" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/users/7152658/zhongjiajie" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/zhongjiajie" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/zhongjiajie/zhongjiajie.github.com/wiki" title="zhongjiajie's wiki" target="_blank">zhongjiajie's wiki</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pypi简介"><span class="nav-number">2.</span> <span class="nav-text"><a href="#pypi&#x7B80;&#x4ECB;" class="headerlink" title="pypi&#x7B80;&#x4ECB;"></a>pypi&#x7B80;&#x4ECB;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pypi安装包制作"><span class="nav-number">3.</span> <span class="nav-text"><a href="#pypi&#x5B89;&#x88C5;&#x5305;&#x5236;&#x4F5C;" class="headerlink" title="pypi&#x5B89;&#x88C5;&#x5305;&#x5236;&#x4F5C;"></a>pypi&#x5B89;&#x88C5;&#x5305;&#x5236;&#x4F5C;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x6CE8;&#x610F;" class="headerlink" title="&#x6CE8;&#x610F;"></a>&#x6CE8;&#x610F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#普通库"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#&#x666E;&#x901A;&#x5E93;" class="headerlink" title="&#x666E;&#x901A;&#x5E93;"></a>&#x666E;&#x901A;&#x5E93;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">3.2.1.</span> <span class="nav-text"><a href="#&#x521B;&#x5EFA;&#x9879;&#x76EE;" class="headerlink" title="&#x521B;&#x5EFA;&#x9879;&#x76EE;"></a>&#x521B;&#x5EFA;&#x9879;&#x76EE;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义库的功能"><span class="nav-number">3.2.2.</span> <span class="nav-text"><a href="#&#x5B9A;&#x4E49;&#x5E93;&#x7684;&#x529F;&#x80FD;" class="headerlink" title="&#x5B9A;&#x4E49;&#x5E93;&#x7684;&#x529F;&#x80FD;"></a>&#x5B9A;&#x4E49;&#x5E93;&#x7684;&#x529F;&#x80FD;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写项目setup-py文件"><span class="nav-number">3.2.3.</span> <span class="nav-text"><a href="#&#x7F16;&#x5199;&#x9879;&#x76EE;setup-py&#x6587;&#x4EF6;" class="headerlink" title="&#x7F16;&#x5199;&#x9879;&#x76EE;setup.py&#x6587;&#x4EF6;"></a>&#x7F16;&#x5199;&#x9879;&#x76EE;setup.py&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包pypi"><span class="nav-number">3.2.4.</span> <span class="nav-text"><a href="#&#x6253;&#x5305;pypi" class="headerlink" title="&#x6253;&#x5305;pypi"></a>&#x6253;&#x5305;pypi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地测试"><span class="nav-number">3.2.5.</span> <span class="nav-text"><a href="#&#x672C;&#x5730;&#x6D4B;&#x8BD5;" class="headerlink" title="&#x672C;&#x5730;&#x6D4B;&#x8BD5;"></a>&#x672C;&#x5730;&#x6D4B;&#x8BD5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传到pypi"><span class="nav-number">3.2.6.</span> <span class="nav-text"><a href="#&#x4E0A;&#x4F20;&#x5230;pypi" class="headerlink" title="&#x4E0A;&#x4F20;&#x5230;pypi"></a>&#x4E0A;&#x4F20;&#x5230;pypi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLI"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CLI简介"><span class="nav-number">3.3.1.</span> <span class="nav-text"><a href="#CLI&#x7B80;&#x4ECB;" class="headerlink" title="CLI&#x7B80;&#x4ECB;"></a>CLI&#x7B80;&#x4ECB;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义Python的CLI接口"><span class="nav-number">3.3.2.</span> <span class="nav-text"><a href="#&#x5B9A;&#x4E49;Python&#x7684;CLI&#x63A5;&#x53E3;" class="headerlink" title="&#x5B9A;&#x4E49;Python&#x7684;CLI&#x63A5;&#x53E3;"></a>&#x5B9A;&#x4E49;Python&#x7684;CLI&#x63A5;&#x53E3;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tips"><span class="nav-number">4.</span> <span class="nav-text"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text"><a href="#References" class="headerlink" title="References"></a>References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhongjiajie</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt1IyEEx';
+      var conf = '2db7052f821ae2d84afd4c85b1e4013c';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("MroSKrxiIPS8TnCusPDEjoI5-gzGzoHsz", "kEGSDN65GzDBLLCwDQ1m0BcB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+</body>
+</html>
