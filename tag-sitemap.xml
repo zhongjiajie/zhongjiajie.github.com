@@ -2,27 +2,6 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://zhongjiajie.github.io/tags/mysql-backup/</loc>
-        <lastmod>2017-12-10T02:32:58.183Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://zhongjiajie.github.io/tags/MySQL/</loc>
-        <lastmod>2017-12-10T02:32:58.183Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://zhongjiajie.github.io/tags/schedule/</loc>
-        <lastmod>2017-12-10T02:32:58.183Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zhongjiajie.github.io/tags/SQL/</loc>
         <lastmod>2017-12-10T02:32:58.183Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -39,13 +18,6 @@
     <url>
         <loc>https://zhongjiajie.github.io/tags/Python%E7%88%AC%E8%99%AB/</loc>
         <lastmod>2017-12-10T02:32:58.191Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://zhongjiajie.github.io/tags/Python/</loc>
-        <lastmod>2017-12-10T02:32:58.199Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -73,7 +45,56 @@
 
     <url>
         <loc>https://zhongjiajie.github.io/tags/Git/</loc>
-        <lastmod>2017-12-10T02:32:58.203Z</lastmod>
+        <lastmod>2018-01-24T02:39:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/tags/mysql-backup/</loc>
+        <lastmod>2018-04-01T06:54:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/tags/MySQL/</loc>
+        <lastmod>2018-04-01T06:54:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/tags/Python/</loc>
+        <lastmod>2018-04-01T06:54:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/tags/schedule/</loc>
+        <lastmod>2018-04-01T06:54:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/tags/shadowsocks/</loc>
+        <lastmod>2018-04-01T06:56:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/tags/%E6%A2%AF%E5%AD%90/</loc>
+        <lastmod>2018-04-01T06:56:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/tags/linux/</loc>
+        <lastmod>2018-04-01T06:56:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

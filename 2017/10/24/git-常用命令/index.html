@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="zhongjiajie&#39;s garden">
 <meta property="og:description" content="背景本文介绍Git常见的命令以及部分问题的处理方式，是一篇应用性较强的文章，如果想要更加深入的了解Git的原理，请参考本文的References">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-10T02:32:58.203Z">
+<meta property="og:updated_time" content="2018-01-24T02:39:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git 常用命令">
 <meta name="twitter:description" content="背景本文介绍Git常见的命令以及部分问题的处理方式，是一篇应用性较强的文章，如果想要更加深入的了解Git的原理，请参考本文的References">
@@ -421,7 +421,7 @@
         <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>本文介绍Git常见的命令以及部分问题的处理方式，是一篇应用性较强的文章，如果想要更加深入的了解Git的原理，请参考本文的<a href="#References">References</a></p>
 <a id="more"></a>
 <h1 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h1><h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>在使用Git前要对其进行基本的配置，记录是谁进行当前的修改<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name "YOUR_NAME"                 # 设置 commit 的用户</span><br><span class="line">git config user.email "YOUR_EMIAL@example.com"   # 设置 commit 的邮箱</span><br></pre></td></tr></table></figure></p>
-<h2 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"       # 自定义lg命令 格式化log的输出</span><br></pre></td></tr></table></figure>
+<h2 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 个性化 log</span><br><span class="line">git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"       # 自定义lg命令 格式化log的输出</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 个性化 reflog</span><br><span class="line">git config --global alias.rlg "reflog --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative"</span><br></pre></td></tr></table></figure>
 <h1 id="获取版本库"><a href="#获取版本库" class="headerlink" title="获取版本库"></a>获取版本库</h1><h2 id="从远程版本库获取"><a href="#从远程版本库获取" class="headerlink" title="从远程版本库获取"></a>从远程版本库获取</h2><p>从远程版本库中直接拉取一个仓库，会在当前路径下新生成一个文件夹<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zhongjiajie/Autohome.git   # 从github获取</span><br><span class="line">git clone git@server-name:path/repo-name.git            # 从私有服务器中获取</span><br></pre></td></tr></table></figure></p>
 <h2 id="新建版本库"><a href="#新建版本库" class="headerlink" title="新建版本库"></a>新建版本库</h2><p>一般做法，只能在本地提交、推送到远程，别的用户不能从该库进行<code>clone</code>以及<code>push</code>操作，看到<em>first_git</em>文件夹下面有<strong>.git</strong>隐藏文件夹就说明创建成功<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir first_git</span><br><span class="line">cd first_git</span><br><span class="line">git init</span><br></pre></td></tr></table></figure></p>
 <h2 id="新建裸库"><a href="#新建裸库" class="headerlink" title="新建裸库"></a>新建裸库</h2><p>新建远程版本库，可以提供<code>clone</code>和<code>push</code>到改版本库功能。此时<em>first_git</em>文件夹中和<a href="#新建版本库">新建版本库</a>不同，会生成多个文件夹<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir first_git</span><br><span class="line">cd first_git</span><br><span class="line">git init --bare</span><br></pre></td></tr></table></figure></p>
@@ -533,6 +533,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/04/01/ubuntu常用软件安装和配置/" rel="prev" title="ubuntu常用软件安装和配置">
+                ubuntu常用软件安装和配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -613,7 +617,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,7 +628,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -635,7 +639,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -731,7 +735,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

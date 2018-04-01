@@ -7,13 +7,6 @@
     </url>
 
     <url>
-        <loc>https://zhongjiajie.github.io/categories/mysql-backup/</loc>
-        <lastmod>2017-12-10T02:32:58.183Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zhongjiajie.github.io/categories/SQL/</loc>
         <lastmod>2017-12-10T02:32:58.183Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -50,7 +43,28 @@
 
     <url>
         <loc>https://zhongjiajie.github.io/categories/Git/</loc>
-        <lastmod>2017-12-10T02:32:58.203Z</lastmod>
+        <lastmod>2018-01-24T02:39:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/categories/mysql-backup/</loc>
+        <lastmod>2018-04-01T06:54:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/categories/shadowsocks/</loc>
+        <lastmod>2018-04-01T06:56:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/categories/linux/</loc>
+        <lastmod>2018-04-01T06:56:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

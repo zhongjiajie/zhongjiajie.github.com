@@ -7,8 +7,24 @@
     </url>
 
     <url>
-        <loc>https://zhongjiajie.github.io/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/</loc>
-        <lastmod>2017-12-10T02:32:58.203Z</lastmod>
+        <loc>https://zhongjiajie.github.io/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</loc>
+        <lastmod>2018-04-01T06:56:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+        <lastmod>2018-04-01T06:56:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</loc>
+        <lastmod>2018-04-01T06:54:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,6 +32,14 @@
 
     <url>
         <loc>https://zhongjiajie.github.io/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+        <lastmod>2018-01-24T02:39:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zhongjiajie.github.io/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/</loc>
         <lastmod>2017-12-10T02:32:58.203Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -41,14 +65,6 @@
     <url>
         <loc>https://zhongjiajie.github.io/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/</loc>
         <lastmod>2017-12-10T02:32:58.191Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zhongjiajie.github.io/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</loc>
-        <lastmod>2017-12-10T02:32:58.183Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
