@@ -1,0 +1,5 @@
+---
+title: {{ title }}
+categories:
+tags:
+---
