@@ -81,12 +81,21 @@ plugins:
 ## Themes: https://hexo.io/themes/
 theme: next
 
+# leancloud
+leancloud_counter_security:
+  enable_sync: true
+  app_id: MroSKrxiIPS8TnCusPDEjoI5-gzGzoHsz
+  app_key: kEGSDN65GzDBLLCwDQ1m0BcB
+  username: admin
+  password: zhongjiajie
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/zhongjiajie/zhongjiajie.github.com.git
-  branch: master
+  - type: git
+    repo: https://github.com/zhongjiajie/zhongjiajie.github.com.git
+    branch: master
+  - type: leancloud_counter_security_sync
 
 # Other setting
 # search
