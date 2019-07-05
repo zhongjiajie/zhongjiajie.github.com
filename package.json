@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.8.0"
+    "version": "3.9.0"
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "gitalk": "^1.4.1",
     "gitment": "0.0.3",
     "hexo": "^3.7.0",
