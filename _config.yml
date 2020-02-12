@@ -93,7 +93,7 @@ leancloud_counter_security:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   - type: git
-    repo: https://github.com/zhongjiajie/zhongjiajie.github.com.git
+    repo: git@github.com:zhongjiajie/zhongjiajie.github.com.git
     branch: master
   - type: leancloud_counter_security_sync
 
