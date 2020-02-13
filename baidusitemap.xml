@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://zhongjiajie.github.io/2020/02/13/Github-API%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4hexo-theme-next-Gittalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/</loc>
+    <lastmod>2020-02-13</lastmod>
+  </url>  <url>
     <loc>https://zhongjiajie.github.io/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/</loc>
-    <lastmod>2020-02-12</lastmod>
+    <lastmod>2020-02-13</lastmod>
   </url>  <url>
     <loc>https://zhongjiajie.github.io/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2020-01-17</lastmod>
@@ -10,13 +13,13 @@
     <loc>https://zhongjiajie.github.io/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2019-07-06</lastmod>
   </url>  <url>
+    <loc>https://zhongjiajie.github.io/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/</loc>
+    <lastmod>2019-05-27</lastmod>
+  </url>  <url>
     <loc>https://zhongjiajie.github.io/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/</loc>
     <lastmod>2019-05-27</lastmod>
   </url>  <url>
     <loc>https://zhongjiajie.github.io/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2019-05-27</lastmod>
-  </url>  <url>
-    <loc>https://zhongjiajie.github.io/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/</loc>
     <lastmod>2019-05-27</lastmod>
   </url>  <url>
     <loc>https://zhongjiajie.github.io/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
@@ -40,10 +43,10 @@
     <loc>https://zhongjiajie.github.io/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/</loc>
     <lastmod>2019-05-27</lastmod>
   </url>  <url>
-    <loc>https://zhongjiajie.github.io/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://zhongjiajie.github.io/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/</loc>
     <lastmod>2019-05-27</lastmod>
   </url>  <url>
-    <loc>https://zhongjiajie.github.io/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/</loc>
+    <loc>https://zhongjiajie.github.io/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2019-05-27</lastmod>
   </url>
 </urlset>
