@@ -343,9 +343,9 @@
       <category term="算法" scheme="https://zhongjiajie.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="基础算法" scheme="https://zhongjiajie.github.io/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
-    
       <category term="Python" scheme="https://zhongjiajie.github.io/tags/Python/"/>
+    
+      <category term="基础算法" scheme="https://zhongjiajie.github.io/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -389,11 +389,11 @@
       <category term="mysql-backup" scheme="https://zhongjiajie.github.io/categories/mysql-backup/"/>
     
     
-      <category term="Python" scheme="https://zhongjiajie.github.io/tags/Python/"/>
-    
       <category term="mysql-backup" scheme="https://zhongjiajie.github.io/tags/mysql-backup/"/>
     
       <category term="MySQL" scheme="https://zhongjiajie.github.io/tags/MySQL/"/>
+    
+      <category term="Python" scheme="https://zhongjiajie.github.io/tags/Python/"/>
     
       <category term="schedule" scheme="https://zhongjiajie.github.io/tags/schedule/"/>
     

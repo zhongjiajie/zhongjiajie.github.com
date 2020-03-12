@@ -153,8 +153,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>基础算法</tag>
         <tag>Python</tag>
+        <tag>基础算法</tag>
       </tags>
   </entry>
   <entry>
@@ -176,9 +176,9 @@
         <category>mysql-backup</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>mysql-backup</tag>
         <tag>MySQL</tag>
+        <tag>Python</tag>
         <tag>schedule</tag>
       </tags>
   </entry>

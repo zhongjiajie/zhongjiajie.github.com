@@ -14,4 +14,5 @@
 {"title":"Airflow 用户指南","url":"/2019/04/05/Airflow-用户指南/"},
 {"title":"Airflow-钉钉消息dingdingOperator使用","url":"/2019/07/05/Airflow-钉钉消息dingdingOperator使用/"},
 {"title":"2019年度总结-在路上","url":"/2020/02/01/2019年度总结-在路上/"},
+{"title":"Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒","url":"/2020/02/13/Github-API更新导致hexo-theme-next-Gittalk触发持续邮件提醒/"},
 ]
