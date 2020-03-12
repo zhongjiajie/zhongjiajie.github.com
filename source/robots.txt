@@ -9,5 +9,5 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: https://zhongjiajie.github.io/sitemap.xml
-Sitemap: https://zhongjiajie.github.io/baidusitemap.xml
+Sitemap: https://zhongjiajie.com/sitemap.xml
+Sitemap: https://zhongjiajie.com/baidusitemap.xml

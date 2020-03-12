@@ -9,11 +9,10 @@ description: 幸福就是 身体无病痛 灵魂无纷扰
 keywords:
 author: zhongjiajie
 language: zh-CN
-timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://zhongjiajie.github.io
+url: https://zhongjiajie.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -77,8 +76,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 plugins:
-  hexo-generator-feed
-  hexo-generator-sitemap
+  - hexo-generator-feed
+  - hexo-generator-sitemap
 ## Themes: https://hexo.io/themes/
 theme: next
 
@@ -88,7 +87,7 @@ leancloud_counter_security:
   app_id: MroSKrxiIPS8TnCusPDEjoI5-gzGzoHsz
   app_key: kEGSDN65GzDBLLCwDQ1m0BcB
   username: admin
-  password: zhongjiajie
+  password:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

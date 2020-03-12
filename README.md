@@ -34,4 +34,4 @@ hexo generate
 hexo deploy
 ```
 
-[1]: https://zhongjiajie.github.io/
+[1]: http://zhongjiajie.com
