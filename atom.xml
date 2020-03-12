@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://zhongjiajie.github.io/"/>
-  <updated>2020-02-13T07:44:21.711Z</updated>
-  <id>https://zhongjiajie.github.io/</id>
+  <link href="https://zhongjiajie.com/"/>
+  <updated>2020-03-12T11:26:20.643Z</updated>
+  <id>https://zhongjiajie.com/</id>
   
   <author>
     <name>zhongjiajie</name>
@@ -18,33 +18,33 @@
   
   <entry>
     <title>Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒</title>
-    <link href="https://zhongjiajie.github.io/2020/02/13/Github-API%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4hexo-theme-next-Gittalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/"/>
-    <id>https://zhongjiajie.github.io/2020/02/13/Github-API更新导致hexo-theme-next-Gittalk触发持续邮件提醒/</id>
+    <link href="https://zhongjiajie.com/2020/02/13/Github-API%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4hexo-theme-next-Gittalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/"/>
+    <id>https://zhongjiajie.com/2020/02/13/Github-API更新导致hexo-theme-next-Gittalk触发持续邮件提醒/</id>
     <published>2020-02-13T07:02:46.000Z</published>
-    <updated>2020-02-13T07:44:21.711Z</updated>
+    <updated>2020-03-12T11:26:20.643Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Github-API更新导致hexo-theme-next-Gitalk触发持续邮件提醒"><a href="#Github-API更新导致hexo-theme-next-Gitalk触发持续邮件提醒" class="headerlink" title="Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒"></a>Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒</h1><p>春节这几天持续收到了Github关于部分弃用API的邮件提醒，一天就能收到五六封，但是由于但是没有很好的网络条件没有进行处理，现在回来广州可以进行处理了。</p><p><img src="/2020/02/13/Github-API更新导致hexo-theme-next-Gittalk触发持续邮件提醒/github-api-alter.png" alt="github-api-alter]"></p><a id="more"></a><h2 id="具体描述"><a href="#具体描述" class="headerlink" title="具体描述"></a>具体描述</h2><p>情况大概是我使用的博客评论系统Gittalk依赖，但是根据<a href="https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/#authenticating-using-query-parameters" target="_blank" rel="noopener">Github-Deprecated APIs and authentication</a>可以知道Github对参数需求进行了部分修改，该方法已经被弃用了。</p><blockquote><p>GitHub is deprecating password authentication to the API. Instead of using password authentication, create a personal access token using your Personal access tokens settings page in limited situations like testing.</p></blockquote><p>我这边追踪到了<a href="https://github.com/gitalk/gitalk/issues/343" target="_blank" rel="noopener">Gitalk-issue-343</a>以及发现gitalk社区已经追踪到了这个issue并并且大家都给了自己临时的解决方案了，最后看到issue后面跟了一个已经合并了的相关PR，我意识到这个问题可能已经有了比较合理的解决方案<a href="https://github.com/gitalk/gitalk/pull/344" target="_blank" rel="noopener">Gitalk-PR-344</a>以及<a href="https://github.com/gitalk/gitalk/pull/346" target="_blank" rel="noopener">Gitalk-PR-346</a>。并且在<a href="https://github.com/gitalk/gitalk/pull/346" target="_blank" rel="noopener">Gitalk-PR-346</a>中可知，只需要将gitalk升级到v1.5.2就可以了。</p><p><strong>解决方案已经出来了</strong>，就是将hexo-next关于gitalk的的版本升级到1.5.2。</p><p>我去了theme-next/hexo-theme-next的库中查找了相关的issue以及PR，发现了两个相关的PR[hexo-theme-next-PR-1365]以及[hexo-theme-next-PR-1369]，从两个PR中可以知道Gitalk为了应对<a href="https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/#authenticating-using-query-parameters" target="_blank" rel="noopener">Github-Deprecated APIs and authentication</a>也是经过了多次升级，但是根据我上面所说的</p><blockquote><p><strong>解决方案已经出来了</strong>，就是将hexo-next关于gitalk的的版本升级到1.5.2。</p></blockquote><p>可以知道，只需要将next的gitalk升级成1.5.2就可以了，从[hexo-theme-next-PR-1365]以及[hexo-theme-next-PR-1369]中可以知道next-gitalk相关引用路径在<code>themes/next/layout/_third-party/comment/gitalk.swig</code>,将其中的gitalk-js以及gitalk-css版本升级到1.5.2就行（因为此时的next还没有发布最新的release，只能手动更新）</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.comments &amp;&amp; theme.gitalk.enable %&#125;</span><br><span class="line"></span><br><span class="line"><span class="deletion">-  &#123;% set gitalk_js_url = "//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js" %&#125;</span></span><br><span class="line"><span class="addition">+  &#123;% set gitalk_js_url = "//cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.js" %&#125;</span></span><br><span class="line">  &#123;% if theme.vendors.gitalk_js %&#125;</span><br><span class="line">    &#123;% set gitalk_js_url = theme.vendors.gitalk_js %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  &lt;script src="&#123;&#123; gitalk_js_url &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="deletion">-  &#123;% set gitalk_css_url = "//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css" %&#125;</span></span><br><span class="line"><span class="addition">+  &#123;% set gitalk_css_url = "//cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.css" %&#125;</span></span><br><span class="line">  &#123;% if theme.vendors.gitalk_css %&#125;</span><br><span class="line">    &#123;% set gitalk_css_url = theme.vendors.gitalk_css %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  &lt;link rel="stylesheet" href="&#123;&#123; gitalk_css_url &#125;&#125;"/&gt;</span><br><span class="line"></span><br><span class="line">  &#123;% set md5_url = "//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js" %&#125;</span><br><span class="line">  &#123;% if theme.vendors.md5 %&#125;</span><br><span class="line">    &#123;% set md5_url = theme.vendors.md5 %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  &lt;script src="&#123;&#123; md5_url &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">   &lt;script&gt;</span><br><span class="line">        var gitalk = new Gitalk(&#123;</span><br><span class="line">          clientID: '&#123;&#123; theme.gitalk.client_id &#125;&#125;',</span><br><span class="line">          clientSecret: '&#123;&#123; theme.gitalk.client_secret &#125;&#125;',</span><br><span class="line">          repo: '&#123;&#123; theme.gitalk.repo &#125;&#125;',</span><br><span class="line">          owner: '&#123;&#123; theme.gitalk.github_id &#125;&#125;',</span><br><span class="line">          admin: ['&#123;&#123; theme.gitalk.admin_user &#125;&#125;'],</span><br><span class="line">          id: md5(location.pathname),</span><br><span class="line">          distractionFreeMode: '&#123;&#123; theme.gitalk.distraction_free_mode &#125;&#125;'</span><br><span class="line">        &#125;)</span><br><span class="line">        gitalk.render('gitalk-container')</span><br><span class="line">       &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>之后就是运行命令进行重新的部署</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><hr>]]></content>
+    <content type="html"><![CDATA[<h1 id="Github-API更新导致hexo-theme-next-Gitalk触发持续邮件提醒"><a href="#Github-API更新导致hexo-theme-next-Gitalk触发持续邮件提醒" class="headerlink" title="Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒"></a>Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒</h1><p>春节这几天持续收到了Github关于部分弃用API的邮件提醒，一天就能收到五六封，但是由于但是没有很好的网络条件没有进行处理，现在回来广州可以进行处理了。</p><p><img src="/2020/02/13/Github-API更新导致hexo-theme-next-Gittalk触发持续邮件提醒/github-api-alter.png" alt="github-api-alter"></p><a id="more"></a><h2 id="具体描述"><a href="#具体描述" class="headerlink" title="具体描述"></a>具体描述</h2><p>情况大概是我使用的博客评论系统Gittalk依赖，但是根据<a href="https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/#authenticating-using-query-parameters" target="_blank" rel="noopener">Github-Deprecated APIs and authentication</a>可以知道Github对参数需求进行了部分修改，该方法已经被弃用了。</p><blockquote><p>GitHub is deprecating password authentication to the API. Instead of using password authentication, create a personal access token using your Personal access tokens settings page in limited situations like testing.</p></blockquote><p>我这边追踪到了<a href="https://github.com/gitalk/gitalk/issues/343" target="_blank" rel="noopener">Gitalk-issue-343</a>以及发现gitalk社区已经追踪到了这个issue并并且大家都给了自己临时的解决方案了，最后看到issue后面跟了一个已经合并了的相关PR，我意识到这个问题可能已经有了比较合理的解决方案<a href="https://github.com/gitalk/gitalk/pull/344" target="_blank" rel="noopener">Gitalk-PR-344</a>以及<a href="https://github.com/gitalk/gitalk/pull/346" target="_blank" rel="noopener">Gitalk-PR-346</a>。并且在<a href="https://github.com/gitalk/gitalk/pull/346" target="_blank" rel="noopener">Gitalk-PR-346</a>中可知，只需要将gitalk升级到v1.5.2就可以了。</p><p><strong>解决方案已经出来了</strong>，就是将hexo-next关于gitalk的的版本升级到1.5.2。</p><p>我去了theme-next/hexo-theme-next的库中查找了相关的issue以及PR，发现了两个相关的PR[hexo-theme-next-PR-1365]以及[hexo-theme-next-PR-1369]，从两个PR中可以知道Gitalk为了应对<a href="https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/#authenticating-using-query-parameters" target="_blank" rel="noopener">Github-Deprecated APIs and authentication</a>也是经过了多次升级，但是根据我上面所说的</p><blockquote><p><strong>解决方案已经出来了</strong>，就是将hexo-next关于gitalk的的版本升级到1.5.2。</p></blockquote><p>可以知道，只需要将next的gitalk升级成1.5.2就可以了，从[hexo-theme-next-PR-1365]以及[hexo-theme-next-PR-1369]中可以知道next-gitalk相关引用路径在<code>themes/next/layout/_third-party/comment/gitalk.swig</code>,将其中的gitalk-js以及gitalk-css版本升级到1.5.2就行（因为此时的next还没有发布最新的release，只能手动更新）</p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.comments &amp;&amp; theme.gitalk.enable %&#125;</span><br><span class="line"></span><br><span class="line"><span class="deletion">-  &#123;% set gitalk_js_url = "//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js" %&#125;</span></span><br><span class="line"><span class="addition">+  &#123;% set gitalk_js_url = "//cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.min.js" %&#125;</span></span><br><span class="line">  &#123;% if theme.vendors.gitalk_js %&#125;</span><br><span class="line">    &#123;% set gitalk_js_url = theme.vendors.gitalk_js %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  &lt;script src="&#123;&#123; gitalk_js_url &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="deletion">-  &#123;% set gitalk_css_url = "//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css" %&#125;</span></span><br><span class="line"><span class="addition">+  &#123;% set gitalk_css_url = "//cdn.jsdelivr.net/npm/gitalk@1.5.2/dist/gitalk.css" %&#125;</span></span><br><span class="line">  &#123;% if theme.vendors.gitalk_css %&#125;</span><br><span class="line">    &#123;% set gitalk_css_url = theme.vendors.gitalk_css %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  &lt;link rel="stylesheet" href="&#123;&#123; gitalk_css_url &#125;&#125;"/&gt;</span><br><span class="line"></span><br><span class="line">  &#123;% set md5_url = "//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js" %&#125;</span><br><span class="line">  &#123;% if theme.vendors.md5 %&#125;</span><br><span class="line">    &#123;% set md5_url = theme.vendors.md5 %&#125;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">  &lt;script src="&#123;&#123; md5_url &#125;&#125;"&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">   &lt;script&gt;</span><br><span class="line">        var gitalk = new Gitalk(&#123;</span><br><span class="line">          clientID: '&#123;&#123; theme.gitalk.client_id &#125;&#125;',</span><br><span class="line">          clientSecret: '&#123;&#123; theme.gitalk.client_secret &#125;&#125;',</span><br><span class="line">          repo: '&#123;&#123; theme.gitalk.repo &#125;&#125;',</span><br><span class="line">          owner: '&#123;&#123; theme.gitalk.github_id &#125;&#125;',</span><br><span class="line">          admin: ['&#123;&#123; theme.gitalk.admin_user &#125;&#125;'],</span><br><span class="line">          id: md5(location.pathname),</span><br><span class="line">          distractionFreeMode: '&#123;&#123; theme.gitalk.distraction_free_mode &#125;&#125;'</span><br><span class="line">        &#125;)</span><br><span class="line">        gitalk.render('gitalk-container')</span><br><span class="line">       &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>之后就是运行命令进行重新的部署</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><hr>]]></content>
     
     <summary type="html">
     
       &lt;h1 id=&quot;Github-API更新导致hexo-theme-next-Gitalk触发持续邮件提醒&quot;&gt;&lt;a href=&quot;#Github-API更新导致hexo-theme-next-Gitalk触发持续邮件提醒&quot; class=&quot;headerlink&quot; title=&quot;Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒&quot;&gt;&lt;/a&gt;Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒&lt;/h1&gt;&lt;p&gt;春节这几天持续收到了Github关于部分弃用API的邮件提醒，一天就能收到五六封，但是由于但是没有很好的网络条件没有进行处理，现在回来广州可以进行处理了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/02/13/Github-API更新导致hexo-theme-next-Gittalk触发持续邮件提醒/github-api-alter.png&quot; alt=&quot;github-api-alter]&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/02/13/Github-API更新导致hexo-theme-next-Gittalk触发持续邮件提醒/github-api-alter.png&quot; alt=&quot;github-api-alter&quot;&gt;&lt;/p&gt;
     
     </summary>
     
-      <category term="blog" scheme="https://zhongjiajie.github.io/categories/blog/"/>
+      <category term="blog" scheme="https://zhongjiajie.com/categories/blog/"/>
     
     
-      <category term="Github" scheme="https://zhongjiajie.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://zhongjiajie.com/tags/Github/"/>
     
-      <category term="blog" scheme="https://zhongjiajie.github.io/tags/blog/"/>
+      <category term="blog" scheme="https://zhongjiajie.com/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>2019年度总结-在路上</title>
-    <link href="https://zhongjiajie.github.io/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/"/>
-    <id>https://zhongjiajie.github.io/2020/02/01/2019年度总结-在路上/</id>
+    <link href="https://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/"/>
+    <id>https://zhongjiajie.com/2020/02/01/2019年度总结-在路上/</id>
     <published>2020-02-01T10:50:41.000Z</published>
     <updated>2020-02-13T06:56:36.784Z</updated>
     
@@ -56,17 +56,17 @@
     
     </summary>
     
-      <category term="年度总结" scheme="https://zhongjiajie.github.io/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+      <category term="年度总结" scheme="https://zhongjiajie.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="总结" scheme="https://zhongjiajie.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="https://zhongjiajie.com/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>Airflow-钉钉消息dingdingOperator使用</title>
-    <link href="https://zhongjiajie.github.io/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/"/>
-    <id>https://zhongjiajie.github.io/2019/07/05/Airflow-钉钉消息dingdingOperator使用/</id>
+    <link href="https://zhongjiajie.com/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/"/>
+    <id>https://zhongjiajie.com/2019/07/05/Airflow-钉钉消息dingdingOperator使用/</id>
     <published>2019-07-05T12:04:25.000Z</published>
     <updated>2019-07-06T04:43:41.707Z</updated>
     
@@ -80,15 +80,15 @@
     
     </summary>
     
-      <category term="Airflow" scheme="https://zhongjiajie.github.io/categories/Airflow/"/>
+      <category term="Airflow" scheme="https://zhongjiajie.com/categories/Airflow/"/>
     
     
   </entry>
   
   <entry>
     <title>Airflow 用户指南</title>
-    <link href="https://zhongjiajie.github.io/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/"/>
-    <id>https://zhongjiajie.github.io/2019/04/05/Airflow-用户指南/</id>
+    <link href="https://zhongjiajie.com/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/"/>
+    <id>https://zhongjiajie.com/2019/04/05/Airflow-用户指南/</id>
     <published>2019-04-05T11:35:36.000Z</published>
     <updated>2019-05-27T09:53:58.818Z</updated>
     
@@ -100,17 +100,17 @@
     
     </summary>
     
-      <category term="Airflow" scheme="https://zhongjiajie.github.io/categories/Airflow/"/>
+      <category term="Airflow" scheme="https://zhongjiajie.com/categories/Airflow/"/>
     
     
-      <category term="Airflow" scheme="https://zhongjiajie.github.io/tags/Airflow/"/>
+      <category term="Airflow" scheme="https://zhongjiajie.com/tags/Airflow/"/>
     
   </entry>
   
   <entry>
     <title>如何加入Apache Airflow slack中国用户频道</title>
-    <link href="https://zhongjiajie.github.io/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/"/>
-    <id>https://zhongjiajie.github.io/2019/04/04/如何加入Apache-Airflow-slack中国用户频道/</id>
+    <link href="https://zhongjiajie.com/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/"/>
+    <id>https://zhongjiajie.com/2019/04/04/如何加入Apache-Airflow-slack中国用户频道/</id>
     <published>2019-04-04T14:09:26.000Z</published>
     <updated>2019-05-27T09:53:58.818Z</updated>
     
@@ -122,21 +122,21 @@
     
     </summary>
     
-      <category term="Airflow" scheme="https://zhongjiajie.github.io/categories/Airflow/"/>
+      <category term="Airflow" scheme="https://zhongjiajie.com/categories/Airflow/"/>
     
     
-      <category term="Airflow" scheme="https://zhongjiajie.github.io/tags/Airflow/"/>
+      <category term="Airflow" scheme="https://zhongjiajie.com/tags/Airflow/"/>
     
   </entry>
   
   <entry>
     <title>&#39;工资突然崩塌式下降是什么感受&#39;有感</title>
-    <link href="https://zhongjiajie.github.io/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/"/>
-    <id>https://zhongjiajie.github.io/2019/01/17/工资突然崩塌式下降是什么感受-有感/</id>
+    <link href="https://zhongjiajie.com/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/"/>
+    <id>https://zhongjiajie.com/2019/01/17/工资突然崩塌式下降是什么感受-有感/</id>
     <published>2019-01-17T00:51:33.000Z</published>
-    <updated>2019-05-27T09:53:58.818Z</updated>
+    <updated>2020-03-12T12:03:28.188Z</updated>
     
-    <content type="html"><![CDATA[<p>今天公交上读到<a href="https://www.zhihu.com/question/280202473/answer/441437975" target="_blank" rel="noopener">工资突然崩塌式下降是什么感受？ - 知乎</a>突然内心涌起波澜.答主毕业时进入与专业对口,大家都羡慕的高薪行业,最要的是如果一直干可以到退休(如果我有这样的工作一定不会放弃,毕竟码农30岁是一个大坎).因为爱情选择了去女友的大城市发展,一开始工资有了提升,但是行业温水主青蛙式崩塌答主全然不知,最后被辞退,歇业了一段时间,当再次找到工作时工资下跌一半</p><a id="more"></a><p>当然,让我感到最沉重的莫过于答主引用陶杰先生的一句话:</p><blockquote><p>当你老了，回顾一生，就会发觉：什么时候出国读书，什么时候决定做第一份职业、何时选定了对象而恋爱、什么时候结婚，其实都是命运的巨变。只是当时站在三岔路口，眼见风云千樯，你作出选择的那一日，在日记上，相当沉闷和平凡，当时还以为是生命中普通的一天。  – 陶杰 《杀鹌鹑的少女》</p></blockquote><p>看了看评论,有一句话也非常值得我们去思考:</p><blockquote><p>可能是缺乏战略眼光导致选择失误，最开始年轻选择多容易忽略，尤其是执行力可塑性精明程度都强的情况下，容易自己把棋走死。即使没有跳槽也可能面临类似结局吧。心智模式才是决定因素，所谓行业都是在不断变化，做不得数。 – <a href="https://www.zhihu.com/people/davidhan-58/activities" target="_blank" rel="noopener">David han</a></p></blockquote><p>我最近总在思考一个问题,我30岁后能干什么?我是继续在办公室吹着暖气写着代码,还是在界面吹着冷风卖这煎饼?大三的我,听了几场师兄师姐的建议,决定了以后从事计算机工作,当时我是一个数学系学生.大三老师推荐了一份校企合作的企业,开始了计算机的打怪升级之路,怪打了不少,但是升级没有多少.大四我自己找了份互联网+政务的企业,这个行业有一个特点,就是技术和业务都不是最重要的,最重要的是人脉,有人,就没有做不成的事.可偏偏我就是做技术的(各位别笑,码农也是技术),更为糟糕的是,生活中<a href="https://zhongjiajie.github.io/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">一些变化</a>包括辞职,理财失败,给了家人一笔现金等,导致我现金流紧缺.现在正和前同事创业,给的工资比之前高了一点,但是不确定性却高了数倍.加入创业时我认为:<em>没关系,我还年轻,很多东西没有就没有吧</em>.第一次我去介意这种事情的时候是在我去医院看病,听说定点可以增加报销额度,我就定点,工作人员和我说,我的社保卡是<strong>封存</strong>状态不能定点,才想起我已经小半年没有较社保公积金了,如果此时我有什么大病,后果将是不堪设想的,现金流弱+没有医保.(这里一个小插曲,我离职前买了意外险,定寿,重疾,就是没有买医疗险,当我意识到医疗问题的严重性后,想加一款医疗险发现很多都要有社保缴费记录,没有缴费记录的都死贵死贵)</p><p>我就在想,等我30岁,或者更年长的时候看这几个决定,我是什么心态看的?那时的我会悔恨现在的我么?我要怎么做才能减少未来的我对现在的我的悔恨?</p>]]></content>
+    <content type="html"><![CDATA[<p>今天公交上读到<a href="https://www.zhihu.com/question/280202473/answer/441437975" target="_blank" rel="noopener">工资突然崩塌式下降是什么感受？ - 知乎</a>突然内心涌起波澜.答主毕业时进入与专业对口,大家都羡慕的高薪行业,最要的是如果一直干可以到退休(如果我有这样的工作一定不会放弃,毕竟码农30岁是一个大坎).因为爱情选择了去女友的大城市发展,一开始工资有了提升,但是行业温水主青蛙式崩塌答主全然不知,最后被辞退,歇业了一段时间,当再次找到工作时工资下跌一半</p><a id="more"></a><p>当然,让我感到最沉重的莫过于答主引用陶杰先生的一句话:</p><blockquote><p>当你老了，回顾一生，就会发觉：什么时候出国读书，什么时候决定做第一份职业、何时选定了对象而恋爱、什么时候结婚，其实都是命运的巨变。只是当时站在三岔路口，眼见风云千樯，你作出选择的那一日，在日记上，相当沉闷和平凡，当时还以为是生命中普通的一天。  – 陶杰 《杀鹌鹑的少女》</p></blockquote><p>看了看评论,有一句话也非常值得我们去思考:</p><blockquote><p>可能是缺乏战略眼光导致选择失误，最开始年轻选择多容易忽略，尤其是执行力可塑性精明程度都强的情况下，容易自己把棋走死。即使没有跳槽也可能面临类似结局吧。心智模式才是决定因素，所谓行业都是在不断变化，做不得数。 – <a href="https://www.zhihu.com/people/davidhan-58/activities" target="_blank" rel="noopener">David han</a></p></blockquote><p>我最近总在思考一个问题,我30岁后能干什么?我是继续在办公室吹着暖气写着代码,还是在界面吹着冷风卖这煎饼?大三的我,听了几场师兄师姐的建议,决定了以后从事计算机工作,当时我是一个数学系学生.大三老师推荐了一份校企合作的企业,开始了计算机的打怪升级之路,怪打了不少,但是升级没有多少.大四我自己找了份互联网+政务的企业,这个行业有一个特点,就是技术和业务都不是最重要的,最重要的是人脉,有人,就没有做不成的事.可偏偏我就是做技术的(各位别笑,码农也是技术),更为糟糕的是,生活中<a href="https://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/">一些变化</a>包括辞职,理财失败,给了家人一笔现金等,导致我现金流紧缺.现在正和前同事创业,给的工资比之前高了一点,但是不确定性却高了数倍.加入创业时我认为:<em>没关系,我还年轻,很多东西没有就没有吧</em>.第一次我去介意这种事情的时候是在我去医院看病,听说定点可以增加报销额度,我就定点,工作人员和我说,我的社保卡是<strong>封存</strong>状态不能定点,才想起我已经小半年没有较社保公积金了,如果此时我有什么大病,后果将是不堪设想的,现金流弱+没有医保.(这里一个小插曲,我离职前买了意外险,定寿,重疾,就是没有买医疗险,当我意识到医疗问题的严重性后,想加一款医疗险发现很多都要有社保缴费记录,没有缴费记录的都死贵死贵)</p><p>我就在想,等我30岁,或者更年长的时候看这几个决定,我是什么心态看的?那时的我会悔恨现在的我么?我要怎么做才能减少未来的我对现在的我的悔恨?</p>]]></content>
     
     <summary type="html">
     
@@ -144,17 +144,17 @@
     
     </summary>
     
-      <category term="生活" scheme="https://zhongjiajie.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="https://zhongjiajie.com/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="感悟" scheme="https://zhongjiajie.github.io/tags/%E6%84%9F%E6%82%9F/"/>
+      <category term="感悟" scheme="https://zhongjiajie.com/tags/%E6%84%9F%E6%82%9F/"/>
     
   </entry>
   
   <entry>
     <title>2018年度总结</title>
-    <link href="https://zhongjiajie.github.io/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
-    <id>https://zhongjiajie.github.io/2019/01/11/2018年度总结/</id>
+    <link href="https://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    <id>https://zhongjiajie.com/2019/01/11/2018年度总结/</id>
     <published>2019-01-11T14:21:38.000Z</published>
     <updated>2020-01-17T10:51:10.059Z</updated>
     
@@ -166,17 +166,17 @@
     
     </summary>
     
-      <category term="年度总结" scheme="https://zhongjiajie.github.io/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+      <category term="年度总结" scheme="https://zhongjiajie.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="总结" scheme="https://zhongjiajie.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="https://zhongjiajie.com/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>shadowsocks使用技巧</title>
-    <link href="https://zhongjiajie.github.io/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>https://zhongjiajie.github.io/2018/04/01/shadowsocks使用技巧/</id>
+    <link href="https://zhongjiajie.com/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://zhongjiajie.com/2018/04/01/shadowsocks使用技巧/</id>
     <published>2018-04-01T06:53:07.000Z</published>
     <updated>2019-05-27T09:53:58.817Z</updated>
     
@@ -191,19 +191,19 @@
     
     </summary>
     
-      <category term="shadowsocks" scheme="https://zhongjiajie.github.io/categories/shadowsocks/"/>
+      <category term="shadowsocks" scheme="https://zhongjiajie.com/categories/shadowsocks/"/>
     
     
-      <category term="shadowsocks" scheme="https://zhongjiajie.github.io/tags/shadowsocks/"/>
+      <category term="shadowsocks" scheme="https://zhongjiajie.com/tags/shadowsocks/"/>
     
-      <category term="梯子" scheme="https://zhongjiajie.github.io/tags/%E6%A2%AF%E5%AD%90/"/>
+      <category term="梯子" scheme="https://zhongjiajie.com/tags/%E6%A2%AF%E5%AD%90/"/>
     
   </entry>
   
   <entry>
     <title>ubuntu常用软件安装和配置</title>
-    <link href="https://zhongjiajie.github.io/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
-    <id>https://zhongjiajie.github.io/2018/04/01/ubuntu常用软件安装和配置/</id>
+    <link href="https://zhongjiajie.com/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
+    <id>https://zhongjiajie.com/2018/04/01/ubuntu常用软件安装和配置/</id>
     <published>2018-04-01T06:50:11.000Z</published>
     <updated>2019-05-27T09:53:58.817Z</updated>
     
@@ -218,17 +218,17 @@
     
     </summary>
     
-      <category term="linux" scheme="https://zhongjiajie.github.io/categories/linux/"/>
+      <category term="linux" scheme="https://zhongjiajie.com/categories/linux/"/>
     
     
-      <category term="linux" scheme="https://zhongjiajie.github.io/tags/linux/"/>
+      <category term="linux" scheme="https://zhongjiajie.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>git 常用命令</title>
-    <link href="https://zhongjiajie.github.io/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://zhongjiajie.github.io/2017/10/24/git-常用命令/</id>
+    <link href="https://zhongjiajie.com/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://zhongjiajie.com/2017/10/24/git-常用命令/</id>
     <published>2017-10-24T03:25:28.000Z</published>
     <updated>2019-05-27T09:53:58.815Z</updated>
     
@@ -241,17 +241,17 @@
     
     </summary>
     
-      <category term="Git" scheme="https://zhongjiajie.github.io/categories/Git/"/>
+      <category term="Git" scheme="https://zhongjiajie.com/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://zhongjiajie.github.io/tags/Git/"/>
+      <category term="Git" scheme="https://zhongjiajie.com/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>用github管理blog</title>
-    <link href="https://zhongjiajie.github.io/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/"/>
-    <id>https://zhongjiajie.github.io/2017/10/23/用github管理blog/</id>
+    <link href="https://zhongjiajie.com/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/"/>
+    <id>https://zhongjiajie.com/2017/10/23/用github管理blog/</id>
     <published>2017-10-23T13:47:43.000Z</published>
     <updated>2019-05-27T09:53:58.813Z</updated>
     
@@ -268,23 +268,23 @@
     
     </summary>
     
-      <category term="blog" scheme="https://zhongjiajie.github.io/categories/blog/"/>
+      <category term="blog" scheme="https://zhongjiajie.com/categories/blog/"/>
     
     
-      <category term="Github" scheme="https://zhongjiajie.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://zhongjiajie.com/tags/Github/"/>
     
-      <category term="blog" scheme="https://zhongjiajie.github.io/tags/blog/"/>
+      <category term="blog" scheme="https://zhongjiajie.com/tags/blog/"/>
     
   </entry>
   
   <entry>
     <title>pypi安装包制作及发布</title>
-    <link href="https://zhongjiajie.github.io/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/"/>
-    <id>https://zhongjiajie.github.io/2017/10/21/pypi安装包制作及发布/</id>
+    <link href="https://zhongjiajie.com/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/"/>
+    <id>https://zhongjiajie.com/2017/10/21/pypi安装包制作及发布/</id>
     <published>2017-10-21T03:07:26.000Z</published>
-    <updated>2019-05-27T09:53:58.813Z</updated>
+    <updated>2020-03-12T12:02:49.085Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>介绍如果将自己的程序制作成pypi包并发布到<a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a></p><a id="more"></a><h1 id="pypi简介"><a href="#pypi简介" class="headerlink" title="pypi简介"></a>pypi简介</h1><p><a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a>全程是<strong>Python Package Index</strong>，其官方定义是</p><blockquote><p>The Python Package Index is a repository of software for the Python programming language. There are currently 119827 packages here.  – until 2017-10-21</p></blockquote><p>我们平常安装程序所用的<code>pip</code>就是到pypi中找到相应的库并将其安装到本地的，比如我们运行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure><p><code>pip</code>就会去pypi找到最符合<strong>requests</strong>的这个包，然后下载到本地，最后将其安装</p><h1 id="pypi安装包制作"><a href="#pypi安装包制作" class="headerlink" title="pypi安装包制作"></a>pypi安装包制作</h1><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>pypi的库不允许有相同的名称，如果想要跟着教程完成相关的操作的话请先将教程的<code>zhongjiajie</code>改成你的名称（目的是在<a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a>找不到相应的库），才能完成库的上传操作</strong></p><h2 id="普通库"><a href="#普通库" class="headerlink" title="普通库"></a>普通库</h2><p>这里的普通库指的是通过<code>from package import function</code>或<code>import package</code>方式调用的库，下面进行具体程序的演示，先切换到项目目录，这里是<strong>myproject</strong></p><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">cd Desktop/</span><br><span class="line">mkdir myproject</span><br><span class="line">cd myproject/</span><br></pre></td></tr></table></figure><h3 id="定义库的功能"><a href="#定义库的功能" class="headerlink" title="定义库的功能"></a>定义库的功能</h3><p>创建文件夹<strong>zhongjiajiepypi</strong>并且在其中编写简单的Python函数<strong>myfunction.py</strong>及定义<strong><strong>init</strong>.py</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir zhongjiajiepypi</span><br><span class="line">cd zhongjiajiepypi/</span><br><span class="line">vim __init__.py       # 这个文件作用就是给这个文件夹打成包</span><br><span class="line">vim myfunction.py     # 这里放置逻辑代码了</span><br></pre></td></tr></table></figure><p>其中<strong>myfunction.py</strong>的内容为</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat myfunction.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def mysum(*args):</span><br><span class="line">    s = 0</span><br><span class="line">    for v in args:</span><br><span class="line">        i = float(v)</span><br><span class="line">        s += i</span><br><span class="line">    print s</span><br></pre></td></tr></table></figure><p><strong><strong>init</strong>.py</strong>的内容为</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat __init__.py</span><br><span class="line">from myfunction import mysum</span><br></pre></td></tr></table></figure><h3 id="编写项目setup-py文件"><a href="#编写项目setup-py文件" class="headerlink" title="编写项目setup.py文件"></a>编写项目setup.py文件</h3><p><strong>这是重点</strong>：接着要编写pypi的setup文件，生成pip可以识别的格式，为后期上传到pypi做准备，我们先切换到<strong>myproject</strong>根目录，然后编辑<strong>setup.py</strong>文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim setup.py         # 写入相应的setup.py内容 详见cat命令结果</span><br><span class="line"><span class="meta">$</span> cat setup.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name = "zhongjiajiepypi",</span><br><span class="line">    version = "0.0.1",</span><br><span class="line">    keywords = ("pip", "testpypi"),</span><br><span class="line">    description = "test pip module",</span><br><span class="line">    long_description = "test how to define pip module and upload to pypi",</span><br><span class="line">    license = "MIT",</span><br><span class="line"></span><br><span class="line">    url = "https://zhongjiajie.github.io",          # your module home page, such as</span><br><span class="line">    author = "zhongjiajie",                         # your name</span><br><span class="line">    author_email = "zhongjiajie955@hotmail.com",    # your email</span><br><span class="line"></span><br><span class="line">    packages = find_packages(),</span><br><span class="line">    include_package_data = True,</span><br><span class="line">    platforms = "any",</span><br><span class="line">    install_requires = []</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>这里我们需要注意一下，<strong>setup.py</strong>文件是能不能正确生成pip能识别文件的关键，他有自己的一套格式，我们编写setup文件要遵循这一套格式，实例代码是基础的设置，更多设置请查阅<a href="https://docs.python.org/3/distutils/setupscript.html#additional-meta-data" target="_blank" rel="noopener">Writing the Setup Script</a></p><h3 id="打包pypi"><a href="#打包pypi" class="headerlink" title="打包pypi"></a>打包pypi</h3><p>此时整个包已经编写完成了，整个项目的文件结构是</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tree</span><br><span class="line">.</span><br><span class="line">├── zhongjiajiepypi</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   └── myfunction.py</span><br><span class="line">└── setup.py</span><br></pre></td></tr></table></figure><p>现在我们需要将项目变成<strong>pip</strong>能够识别并安装的文件，在本地测试成功后将文件上传到<strong>pypi</strong>，在项目的根目录（setup.py同等位置）中运行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist       # 生成二进制包 支持pip安装 推荐使用</span><br><span class="line">python setup.py bdist_egg   # 生成egg 支持easy_install安装</span><br></pre></td></tr></table></figure><p>Python会自动将项目打包成二进制包，此时项目的文件结构是</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tree</span><br><span class="line">.</span><br><span class="line">├── dist</span><br><span class="line">│   └── zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line">├── zhongjiajiepypi</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   └── myfunction.py</span><br><span class="line">├── zhongjiajiepypi.egg-info</span><br><span class="line">│   ├── dependency_links.txt</span><br><span class="line">│   ├── PKG-INFO</span><br><span class="line">│   ├── SOURCES.txt</span><br><span class="line">│   └── top_level.txt</span><br><span class="line">└── setup.py</span><br></pre></td></tr></table></figure><p>此时已算完成了pypi的打包</p><h3 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h3><p>建议在将包上传到pypi之前现在本地完成测试工作，方法是先进入<strong>dist</strong>文件夹，然后用<code>pip</code>命令安装本地的二进制包，安装完成后测试其中的方法是否可用</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd dist</span><br><span class="line"><span class="meta">$</span> pip install zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line"><span class="meta">$</span> python -c "import zhongjiajiepypi; zhongjiajiepypi.mysum(3, 4, 5)"</span><br><span class="line">12.0</span><br></pre></td></tr></table></figure><p>可以看到结果是12.0证明包能达到预期，可以上传到pypi</p><h3 id="上传到pypi"><a href="#上传到pypi" class="headerlink" title="上传到pypi"></a>上传到pypi</h3><p><strong>注意</strong>: 部分旧版教程会说先运行<code>python setup.py register</code>进行注册，然后再运行<code>python setup.py sdist upload</code>将二进制包上传到pypi上，但是目前pypi已经可以不用注册直接运行<code>python setup.py sdist upload</code>完成上传。</p><p>我们先尝试用<code>python setup.py register</code>，接着输入密码，结果收到下面的提示</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Registering zhongjiajiepypi to https://upload.pypi.org/legacy/</span><br><span class="line">Server response (410): Project pre-registration is no longer required or supported, so continue directly to uploading files.</span><br></pre></td></tr></table></figure><p>可以看到确实不用先注册了，下面我们尝试直接运行<code>python setup.py sdist upload</code>，然后输入密码，结果让我吃了一斤</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Submitting dist/zhongjiajiepypi-0.0.1.tar.gz to https://upload.pypi.org/legacy/</span><br><span class="line">Upload failed (403): Invalid or non-existent authentication information.</span><br><span class="line">error: Upload failed (403): Invalid or non-existent authentication information.</span><br></pre></td></tr></table></figure><p>两种方法都不能将本地包上传到pypi，于是我google了原因，看到了github上面相关的链接<a href="https://github.com/pypa/setuptools/issues/941" target="_blank" rel="noopener">Invalid or non-existent authentication information</a>，要新建<code>$HOME/.pypirc</code>文件用于保存pypi的连接信息，尝试了<code>@dover247</code>的文件样例发现仍不能上传到pypi，然后看到<code>@jaraco</code>说那个版本有点旧，就去了<a href="https://docs.python.org/3.6/distutils/packageindex.html#pypirc" target="_blank" rel="noopener">The Python Package Index (PyPI)</a>使用了最新的样例，然后再运行<code>python setup.py sdist upload</code>就能上传成功了（注意国内网络环境访问pypi）</p><h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><h3 id="CLI简介"><a href="#CLI简介" class="headerlink" title="CLI简介"></a>CLI简介</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2" target="_blank" rel="noopener">CLI</a>（command-line interface，命令行界面）是指可在用户提示符下键入可执行指令的界面，它通常不支持鼠标，用户通过键盘输入指令，计算机接收到指令后，予以执行。我个人的理解是通过命令行操作调用程序的接口，以达到我们的目的，好处是更加直观、并提供交互式的完成一些简单的操作</p><h3 id="定义Python的CLI接口"><a href="#定义Python的CLI接口" class="headerlink" title="定义Python的CLI接口"></a>定义Python的CLI接口</h3><p>Python的CLI和Python的一般库的做法类似，不同的是它暴露了一个CLI的关键字，调用起来就类似于调用<code>python script_name.py args</code>的形式。他会在<code>$PYTHON_HOME/Scripts</code>生成可运行文件，命令行调用，下面我们把之前的例子改成CLI的调用方式，先修改<strong>zhongjiajiefunction.py</strong>文件，加上命令行传参的功能。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat zhongjiajiefunction.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def mysum(*args):</span><br><span class="line">    s = 0</span><br><span class="line">    for v in args:</span><br><span class="line">        i = float(v)</span><br><span class="line">        s += i</span><br><span class="line">    print s</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 从此是新加的功能</span><br><span class="line">def mysum_cli():</span><br><span class="line">    import sys</span><br><span class="line">    args = sys.argv[1:]</span><br><span class="line">    mysum(*args)</span><br></pre></td></tr></table></figure><p>新加的<code>mysum_cli</code>提供了在命令行获取相关的参数，并将参数传递给原来的<code>mysum</code>函数。接着修改<strong>setup.py</strong>函数。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat setup.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name = "zhongjiajiepypi",</span><br><span class="line">    version = "0.0.1",</span><br><span class="line">    keywords = ("pip", "testpypi"),</span><br><span class="line">    description = "test pip module",</span><br><span class="line">    long_description = "test how to define pip module and upload to pypi",</span><br><span class="line">    license = "MIT",</span><br><span class="line"></span><br><span class="line">    url = "https://zhongjiajie.github.io",</span><br><span class="line">    author = "zhongjiajie",</span><br><span class="line">    author_email = "zhongjiajie955@hotmail.com",</span><br><span class="line"></span><br><span class="line">    packages = find_packages(),</span><br><span class="line">    include_package_data = True,</span><br><span class="line">    platforms = "any",</span><br><span class="line">    install_requires = [],</span><br><span class="line"></span><br><span class="line">    # 此处起是增加的内容</span><br><span class="line">    entry_points = &#123;</span><br><span class="line">        'console_scripts': [</span><br><span class="line">            'mysum=zhongjiajiepypi.zhongjiajiefunction:mysum_cli',</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>可以看到只需要在配置中加上<code>entry_points</code>入口选项就行了，其中<code>console_scripts</code>中指定命令行中的关键字，此处为<code>mysum</code>，对应的是<code>zhongjiajiepypi</code>这个库的<code>zhongjiajiefunction</code>函数里面的<code>mysum_cli</code>方法。</p><p>至此完成了CLI的配置，接着根据之前介绍的<a href="#打包pypi">打包pypi</a>的方法进行打包，然后本地测试运行就能得到我们想要的结果了，当和下面一样看到命令行调用<code>mysum 2 3 4</code>的结果是9.0的时候就说明CLI接口已经能正常运行了</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> python setup.py sdist</span><br><span class="line"><span class="meta">$</span> cd dist</span><br><span class="line"><span class="meta">$</span> pip install zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line"><span class="meta">$</span> mysum 2 3 4</span><br><span class="line">9.0</span><br></pre></td></tr></table></figure><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ul><li>由于pypi不能有同名的库，所以拿样例测试的时候要将名字改成pypi不存在的库名</li><li>上传到pypi已经不用先注册，但要新建<code>$HOME/.pypirc</code>文件填入适当的内容</li></ul><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a href="http://www.xiaoh.me/2015/12/11/python-egg/" target="_blank" rel="noopener">怎么制作pip安装包，Python Egg</a></p><p><a href="https://zhuanlan.zhihu.com/p/26159930" target="_blank" rel="noopener">如何将自己的程序发布到 PyPI</a></p><p><a href="https://python-packaging.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">How To Package Your Python Code</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>介绍如果将自己的程序制作成pypi包并发布到<a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a></p><a id="more"></a><h1 id="pypi简介"><a href="#pypi简介" class="headerlink" title="pypi简介"></a>pypi简介</h1><p><a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a>全程是<strong>Python Package Index</strong>，其官方定义是</p><blockquote><p>The Python Package Index is a repository of software for the Python programming language. There are currently 119827 packages here.  – until 2017-10-21</p></blockquote><p>我们平常安装程序所用的<code>pip</code>就是到pypi中找到相应的库并将其安装到本地的，比如我们运行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure><p><code>pip</code>就会去pypi找到最符合<strong>requests</strong>的这个包，然后下载到本地，最后将其安装</p><h1 id="pypi安装包制作"><a href="#pypi安装包制作" class="headerlink" title="pypi安装包制作"></a>pypi安装包制作</h1><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>pypi的库不允许有相同的名称，如果想要跟着教程完成相关的操作的话请先将教程的<code>zhongjiajie</code>改成你的名称（目的是在<a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">pypi</a>找不到相应的库），才能完成库的上传操作</strong></p><h2 id="普通库"><a href="#普通库" class="headerlink" title="普通库"></a>普通库</h2><p>这里的普通库指的是通过<code>from package import function</code>或<code>import package</code>方式调用的库，下面进行具体程序的演示，先切换到项目目录，这里是<strong>myproject</strong></p><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">cd Desktop/</span><br><span class="line">mkdir myproject</span><br><span class="line">cd myproject/</span><br></pre></td></tr></table></figure><h3 id="定义库的功能"><a href="#定义库的功能" class="headerlink" title="定义库的功能"></a>定义库的功能</h3><p>创建文件夹<strong>zhongjiajiepypi</strong>并且在其中编写简单的Python函数<strong>myfunction.py</strong>及定义<strong><strong>init</strong>.py</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir zhongjiajiepypi</span><br><span class="line">cd zhongjiajiepypi/</span><br><span class="line">vim __init__.py       # 这个文件作用就是给这个文件夹打成包</span><br><span class="line">vim myfunction.py     # 这里放置逻辑代码了</span><br></pre></td></tr></table></figure><p>其中<strong>myfunction.py</strong>的内容为</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat myfunction.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def mysum(*args):</span><br><span class="line">    s = 0</span><br><span class="line">    for v in args:</span><br><span class="line">        i = float(v)</span><br><span class="line">        s += i</span><br><span class="line">    print s</span><br></pre></td></tr></table></figure><p><strong><strong>init</strong>.py</strong>的内容为</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat __init__.py</span><br><span class="line">from myfunction import mysum</span><br></pre></td></tr></table></figure><h3 id="编写项目setup-py文件"><a href="#编写项目setup-py文件" class="headerlink" title="编写项目setup.py文件"></a>编写项目setup.py文件</h3><p><strong>这是重点</strong>：接着要编写pypi的setup文件，生成pip可以识别的格式，为后期上传到pypi做准备，我们先切换到<strong>myproject</strong>根目录，然后编辑<strong>setup.py</strong>文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim setup.py         # 写入相应的setup.py内容 详见cat命令结果</span><br><span class="line"><span class="meta">$</span> cat setup.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name = "zhongjiajiepypi",</span><br><span class="line">    version = "0.0.1",</span><br><span class="line">    keywords = ("pip", "testpypi"),</span><br><span class="line">    description = "test pip module",</span><br><span class="line">    long_description = "test how to define pip module and upload to pypi",</span><br><span class="line">    license = "MIT",</span><br><span class="line"></span><br><span class="line">    url = "https://zhongjiajie.com",          # your module home page, such as</span><br><span class="line">    author = "zhongjiajie",                         # your name</span><br><span class="line">    author_email = "zhongjiajie955@hotmail.com",    # your email</span><br><span class="line"></span><br><span class="line">    packages = find_packages(),</span><br><span class="line">    include_package_data = True,</span><br><span class="line">    platforms = "any",</span><br><span class="line">    install_requires = []</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>这里我们需要注意一下，<strong>setup.py</strong>文件是能不能正确生成pip能识别文件的关键，他有自己的一套格式，我们编写setup文件要遵循这一套格式，实例代码是基础的设置，更多设置请查阅<a href="https://docs.python.org/3/distutils/setupscript.html#additional-meta-data" target="_blank" rel="noopener">Writing the Setup Script</a></p><h3 id="打包pypi"><a href="#打包pypi" class="headerlink" title="打包pypi"></a>打包pypi</h3><p>此时整个包已经编写完成了，整个项目的文件结构是</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tree</span><br><span class="line">.</span><br><span class="line">├── zhongjiajiepypi</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   └── myfunction.py</span><br><span class="line">└── setup.py</span><br></pre></td></tr></table></figure><p>现在我们需要将项目变成<strong>pip</strong>能够识别并安装的文件，在本地测试成功后将文件上传到<strong>pypi</strong>，在项目的根目录（setup.py同等位置）中运行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist       # 生成二进制包 支持pip安装 推荐使用</span><br><span class="line">python setup.py bdist_egg   # 生成egg 支持easy_install安装</span><br></pre></td></tr></table></figure><p>Python会自动将项目打包成二进制包，此时项目的文件结构是</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tree</span><br><span class="line">.</span><br><span class="line">├── dist</span><br><span class="line">│   └── zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line">├── zhongjiajiepypi</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   └── myfunction.py</span><br><span class="line">├── zhongjiajiepypi.egg-info</span><br><span class="line">│   ├── dependency_links.txt</span><br><span class="line">│   ├── PKG-INFO</span><br><span class="line">│   ├── SOURCES.txt</span><br><span class="line">│   └── top_level.txt</span><br><span class="line">└── setup.py</span><br></pre></td></tr></table></figure><p>此时已算完成了pypi的打包</p><h3 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h3><p>建议在将包上传到pypi之前现在本地完成测试工作，方法是先进入<strong>dist</strong>文件夹，然后用<code>pip</code>命令安装本地的二进制包，安装完成后测试其中的方法是否可用</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd dist</span><br><span class="line"><span class="meta">$</span> pip install zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line"><span class="meta">$</span> python -c "import zhongjiajiepypi; zhongjiajiepypi.mysum(3, 4, 5)"</span><br><span class="line">12.0</span><br></pre></td></tr></table></figure><p>可以看到结果是12.0证明包能达到预期，可以上传到pypi</p><h3 id="上传到pypi"><a href="#上传到pypi" class="headerlink" title="上传到pypi"></a>上传到pypi</h3><p><strong>注意</strong>: 部分旧版教程会说先运行<code>python setup.py register</code>进行注册，然后再运行<code>python setup.py sdist upload</code>将二进制包上传到pypi上，但是目前pypi已经可以不用注册直接运行<code>python setup.py sdist upload</code>完成上传。</p><p>我们先尝试用<code>python setup.py register</code>，接着输入密码，结果收到下面的提示</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Registering zhongjiajiepypi to https://upload.pypi.org/legacy/</span><br><span class="line">Server response (410): Project pre-registration is no longer required or supported, so continue directly to uploading files.</span><br></pre></td></tr></table></figure><p>可以看到确实不用先注册了，下面我们尝试直接运行<code>python setup.py sdist upload</code>，然后输入密码，结果让我吃了一斤</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Submitting dist/zhongjiajiepypi-0.0.1.tar.gz to https://upload.pypi.org/legacy/</span><br><span class="line">Upload failed (403): Invalid or non-existent authentication information.</span><br><span class="line">error: Upload failed (403): Invalid or non-existent authentication information.</span><br></pre></td></tr></table></figure><p>两种方法都不能将本地包上传到pypi，于是我google了原因，看到了github上面相关的链接<a href="https://github.com/pypa/setuptools/issues/941" target="_blank" rel="noopener">Invalid or non-existent authentication information</a>，要新建<code>$HOME/.pypirc</code>文件用于保存pypi的连接信息，尝试了<code>@dover247</code>的文件样例发现仍不能上传到pypi，然后看到<code>@jaraco</code>说那个版本有点旧，就去了<a href="https://docs.python.org/3.6/distutils/packageindex.html#pypirc" target="_blank" rel="noopener">The Python Package Index (PyPI)</a>使用了最新的样例，然后再运行<code>python setup.py sdist upload</code>就能上传成功了（注意国内网络环境访问pypi）</p><h2 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h2><h3 id="CLI简介"><a href="#CLI简介" class="headerlink" title="CLI简介"></a>CLI简介</h3><p><a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2" target="_blank" rel="noopener">CLI</a>（command-line interface，命令行界面）是指可在用户提示符下键入可执行指令的界面，它通常不支持鼠标，用户通过键盘输入指令，计算机接收到指令后，予以执行。我个人的理解是通过命令行操作调用程序的接口，以达到我们的目的，好处是更加直观、并提供交互式的完成一些简单的操作</p><h3 id="定义Python的CLI接口"><a href="#定义Python的CLI接口" class="headerlink" title="定义Python的CLI接口"></a>定义Python的CLI接口</h3><p>Python的CLI和Python的一般库的做法类似，不同的是它暴露了一个CLI的关键字，调用起来就类似于调用<code>python script_name.py args</code>的形式。他会在<code>$PYTHON_HOME/Scripts</code>生成可运行文件，命令行调用，下面我们把之前的例子改成CLI的调用方式，先修改<strong>zhongjiajiefunction.py</strong>文件，加上命令行传参的功能。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat zhongjiajiefunction.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def mysum(*args):</span><br><span class="line">    s = 0</span><br><span class="line">    for v in args:</span><br><span class="line">        i = float(v)</span><br><span class="line">        s += i</span><br><span class="line">    print s</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 从此是新加的功能</span><br><span class="line">def mysum_cli():</span><br><span class="line">    import sys</span><br><span class="line">    args = sys.argv[1:]</span><br><span class="line">    mysum(*args)</span><br></pre></td></tr></table></figure><p>新加的<code>mysum_cli</code>提供了在命令行获取相关的参数，并将参数传递给原来的<code>mysum</code>函数。接着修改<strong>setup.py</strong>函数。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat setup.py</span><br><span class="line"><span class="meta">#</span>!/usr/bin/env python</span><br><span class="line"><span class="meta">#</span>-*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name = "zhongjiajiepypi",</span><br><span class="line">    version = "0.0.1",</span><br><span class="line">    keywords = ("pip", "testpypi"),</span><br><span class="line">    description = "test pip module",</span><br><span class="line">    long_description = "test how to define pip module and upload to pypi",</span><br><span class="line">    license = "MIT",</span><br><span class="line"></span><br><span class="line">    url = "https://zhongjiajie.com",</span><br><span class="line">    author = "zhongjiajie",</span><br><span class="line">    author_email = "zhongjiajie955@hotmail.com",</span><br><span class="line"></span><br><span class="line">    packages = find_packages(),</span><br><span class="line">    include_package_data = True,</span><br><span class="line">    platforms = "any",</span><br><span class="line">    install_requires = [],</span><br><span class="line"></span><br><span class="line">    # 此处起是增加的内容</span><br><span class="line">    entry_points = &#123;</span><br><span class="line">        'console_scripts': [</span><br><span class="line">            'mysum=zhongjiajiepypi.zhongjiajiefunction:mysum_cli',</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure><p>可以看到只需要在配置中加上<code>entry_points</code>入口选项就行了，其中<code>console_scripts</code>中指定命令行中的关键字，此处为<code>mysum</code>，对应的是<code>zhongjiajiepypi</code>这个库的<code>zhongjiajiefunction</code>函数里面的<code>mysum_cli</code>方法。</p><p>至此完成了CLI的配置，接着根据之前介绍的<a href="#打包pypi">打包pypi</a>的方法进行打包，然后本地测试运行就能得到我们想要的结果了，当和下面一样看到命令行调用<code>mysum 2 3 4</code>的结果是9.0的时候就说明CLI接口已经能正常运行了</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> python setup.py sdist</span><br><span class="line"><span class="meta">$</span> cd dist</span><br><span class="line"><span class="meta">$</span> pip install zhongjiajiepypi-0.0.1.tar.gz</span><br><span class="line"><span class="meta">$</span> mysum 2 3 4</span><br><span class="line">9.0</span><br></pre></td></tr></table></figure><h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ul><li>由于pypi不能有同名的库，所以拿样例测试的时候要将名字改成pypi不存在的库名</li><li>上传到pypi已经不用先注册，但要新建<code>$HOME/.pypirc</code>文件填入适当的内容</li></ul><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a href="http://www.xiaoh.me/2015/12/11/python-egg/" target="_blank" rel="noopener">怎么制作pip安装包，Python Egg</a></p><p><a href="https://zhuanlan.zhihu.com/p/26159930" target="_blank" rel="noopener">如何将自己的程序发布到 PyPI</a></p><p><a href="https://python-packaging.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">How To Package Your Python Code</a></p>]]></content>
     
     <summary type="html">
     
@@ -292,19 +292,19 @@
     
     </summary>
     
-      <category term="Python" scheme="https://zhongjiajie.github.io/categories/Python/"/>
+      <category term="Python" scheme="https://zhongjiajie.com/categories/Python/"/>
     
     
-      <category term="Python" scheme="https://zhongjiajie.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://zhongjiajie.com/tags/Python/"/>
     
-      <category term="pypi" scheme="https://zhongjiajie.github.io/tags/pypi/"/>
+      <category term="pypi" scheme="https://zhongjiajie.com/tags/pypi/"/>
     
   </entry>
   
   <entry>
     <title>美女图片API</title>
-    <link href="https://zhongjiajie.github.io/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/"/>
-    <id>https://zhongjiajie.github.io/2017/08/30/美女图片API/</id>
+    <link href="https://zhongjiajie.com/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/"/>
+    <id>https://zhongjiajie.com/2017/08/30/美女图片API/</id>
     <published>2017-08-30T01:50:40.000Z</published>
     <updated>2019-05-27T09:53:58.807Z</updated>
     
@@ -316,19 +316,19 @@
     
     </summary>
     
-      <category term="爬虫" scheme="https://zhongjiajie.github.io/categories/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="https://zhongjiajie.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
-      <category term="Python" scheme="https://zhongjiajie.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://zhongjiajie.com/tags/Python/"/>
     
-      <category term="Python爬虫" scheme="https://zhongjiajie.github.io/tags/Python%E7%88%AC%E8%99%AB/"/>
+      <category term="Python爬虫" scheme="https://zhongjiajie.com/tags/Python%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
   <entry>
     <title>算法相关</title>
-    <link href="https://zhongjiajie.github.io/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    <id>https://zhongjiajie.github.io/2017/07/26/算法相关/</id>
+    <link href="https://zhongjiajie.com/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    <id>https://zhongjiajie.com/2017/07/26/算法相关/</id>
     <published>2017-07-26T08:56:31.000Z</published>
     <updated>2019-05-27T09:53:58.807Z</updated>
     
@@ -340,19 +340,19 @@
     
     </summary>
     
-      <category term="算法" scheme="https://zhongjiajie.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://zhongjiajie.com/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="Python" scheme="https://zhongjiajie.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://zhongjiajie.com/tags/Python/"/>
     
-      <category term="基础算法" scheme="https://zhongjiajie.github.io/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
+      <category term="基础算法" scheme="https://zhongjiajie.com/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>sql实现小记</title>
-    <link href="https://zhongjiajie.github.io/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/"/>
-    <id>https://zhongjiajie.github.io/2017/06/24/sql实现小记/</id>
+    <link href="https://zhongjiajie.com/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://zhongjiajie.com/2017/06/24/sql实现小记/</id>
     <published>2017-06-24T09:08:41.000Z</published>
     <updated>2019-05-27T09:53:58.803Z</updated>
     
@@ -364,17 +364,17 @@
     
     </summary>
     
-      <category term="SQL" scheme="https://zhongjiajie.github.io/categories/SQL/"/>
+      <category term="SQL" scheme="https://zhongjiajie.com/categories/SQL/"/>
     
     
-      <category term="SQL" scheme="https://zhongjiajie.github.io/tags/SQL/"/>
+      <category term="SQL" scheme="https://zhongjiajie.com/tags/SQL/"/>
     
   </entry>
   
   <entry>
     <title>mysql_schedule_backup定时备份mysql工具</title>
-    <link href="https://zhongjiajie.github.io/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/"/>
-    <id>https://zhongjiajie.github.io/2017/06/12/mysql-schedule-backup定时备份mysql工具/</id>
+    <link href="https://zhongjiajie.com/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/"/>
+    <id>https://zhongjiajie.com/2017/06/12/mysql-schedule-backup定时备份mysql工具/</id>
     <published>2017-06-12T12:22:25.000Z</published>
     <updated>2019-05-27T09:53:58.803Z</updated>
     
@@ -386,16 +386,16 @@
     
     </summary>
     
-      <category term="mysql-backup" scheme="https://zhongjiajie.github.io/categories/mysql-backup/"/>
+      <category term="mysql-backup" scheme="https://zhongjiajie.com/categories/mysql-backup/"/>
     
     
-      <category term="mysql-backup" scheme="https://zhongjiajie.github.io/tags/mysql-backup/"/>
+      <category term="mysql-backup" scheme="https://zhongjiajie.com/tags/mysql-backup/"/>
     
-      <category term="MySQL" scheme="https://zhongjiajie.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://zhongjiajie.com/tags/MySQL/"/>
     
-      <category term="Python" scheme="https://zhongjiajie.github.io/tags/Python/"/>
+      <category term="Python" scheme="https://zhongjiajie.com/tags/Python/"/>
     
-      <category term="schedule" scheme="https://zhongjiajie.github.io/tags/schedule/"/>
+      <category term="schedule" scheme="https://zhongjiajie.com/tags/schedule/"/>
     
   </entry>
   
