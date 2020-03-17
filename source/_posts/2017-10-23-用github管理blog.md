@@ -3,9 +3,7 @@ title: 用github管理blog
 date: 2017-10-23 21:47:43
 categories:
 - blog
-tags:
 - Github
-- blog
 ---
 
 # 背景

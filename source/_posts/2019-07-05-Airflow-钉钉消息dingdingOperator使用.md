@@ -1,8 +1,8 @@
 ---
 title: Airflow-钉钉消息dingdingOperator使用
 date: 2019-07-05 20:04:25
-categories: Airflow
-tags:
+categories:
+- Airflow
 ---
 
 Airflow 发送钉钉消息的 dingdingOperator 已经随着 [Airflow 1.10.3][1] 一起发布了, 有了 dingdingOperator 我们可以在 Airflow 中更优雅地发送钉钉消息,以及 任务 失败 成功 重试 sla过时等的通知.

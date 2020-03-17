@@ -2,12 +2,8 @@
 title: mysql_schedule_backup定时备份mysql工具
 date: 2017-06-12 20:22:25
 categories:
-- mysql-backup
-tags:
-- mysql-backup
-- MySQL
-- Python
-- schedule
+- mysql
+- python
 ---
 
 # 背景

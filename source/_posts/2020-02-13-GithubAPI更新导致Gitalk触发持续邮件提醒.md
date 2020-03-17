@@ -3,9 +3,6 @@ title: GithubAPI更新导致Gitalk触发持续邮件提醒
 date: 2020-02-13 15:02:46
 categories:
 - blog
-tags:
-- Github
-- blog
 ---
 
 # Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒

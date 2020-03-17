@@ -3,9 +3,6 @@ title: shadowsocks使用技巧
 date: 2018-04-01 14:53:07
 categories:
 - shadowsocks
-tags:
-- shadowsocks
-- 梯子
 ---
 
 # Shadowsocks

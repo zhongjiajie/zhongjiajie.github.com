@@ -3,8 +3,6 @@ title: 如何加入Apache Airflow slack中国用户频道
 date: 2019-04-04 22:09:26
 categories:
 - Airflow
-tags:
-- Airflow
 ---
 
 这篇文章是介绍如何加入Airflow slack中国用户频道`#user-china`
