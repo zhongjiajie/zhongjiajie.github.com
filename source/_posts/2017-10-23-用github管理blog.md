@@ -44,7 +44,7 @@ update at 2019-01-11: 由于这种方式过于分散,导致换了电脑后就难
 
 ## Gitflow工作流
 
-![Gitflow](2017-10-23-用github管理blog/gitflow.png)
+![Gitflow](gitflow.png)
 
 # Reference
 
