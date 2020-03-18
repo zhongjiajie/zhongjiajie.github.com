@@ -9,7 +9,7 @@ categories:
 
 <!-- more -->
 
-# 为什么要加入Airflow slack user-china
+## 为什么要加入Airflow slack user-china
 
 Apache Airflow 官方的 chat channel 是 slack,里面除了有很多的使用者和代码贡献者外,还有 committer 和 PMC member.在上面问问题能够得到较快且交正确的解答.
 

@@ -5,8 +5,6 @@ categories:
 - blog
 ---
 
-# Github API更新导致hexo-theme-next Gitalk触发持续邮件提醒
-
 春节这几天持续收到了Github关于部分弃用API的邮件提醒，一天就能收到五六封，但是由于但是没有很好的网络条件没有进行处理，现在回来广州可以进行处理了。
 
 <!-- more -->

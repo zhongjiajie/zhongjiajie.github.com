@@ -6,8 +6,6 @@ categories:
 - python
 ---
 
-# 背景
-
 [mysql_schedule_backup](https://github.com/zhongjiajie/mysql_schedule_backup)是定时、全量备份指定mysql数据库的程序。可设置是否压缩备份文件、备份文件保留的天数。
 使用场景是简单的备份逻辑，通过[schedule](https://github.com/dbader/schedule)就能满足的备份逻辑，没有DAG流程。
 

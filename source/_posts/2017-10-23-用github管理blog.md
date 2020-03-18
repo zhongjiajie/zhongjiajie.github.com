@@ -6,8 +6,6 @@ categories:
 - Github
 ---
 
-# 背景
-
 update at 2019-01-11: 由于这种方式过于分散,导致换了电脑后就难以恢复博客内容,所以放弃了.**根据一个懒码农的经验,写博客需要的是耐心,而不是高明的博客内容管理方法.**所以我现在使用的方法是:
 
 * 在个人[github-page-repo](https://github.com/zhongjiajie/zhongjiajie.github.com)上面新建一个分支source用于储存全部的源码(包括主题和配置),需要写博客时直接切换到这个分支写完,然后`hexo d`完成部署

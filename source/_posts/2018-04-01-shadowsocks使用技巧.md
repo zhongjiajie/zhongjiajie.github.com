@@ -5,8 +5,6 @@ categories:
 - shadowsocks
 ---
 
-# Shadowsocks
-
 ## timeline
 
 * update at 2019-01-11: update content from personal wiki.
