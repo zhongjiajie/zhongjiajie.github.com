@@ -2,44 +2,128 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhongjiajie.com/2020/02/13/GithubAPI%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4Gittalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/</loc>
+    <loc>https://zhongjiajie.com/404.html</loc>
     
-    <lastmod>2020-03-12T12:20:12.890Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/</loc>
-    
-    <lastmod>2020-03-12T12:03:28.188Z</lastmod>
+    <lastmod>2020-03-18T09:08:35.336Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhongjiajie.com/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/</loc>
+    <loc>https://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/</loc>
     
-    <lastmod>2020-03-12T12:02:49.085Z</lastmod>
+    <lastmod>2020-03-18T08:43:01.554Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/</loc>
     
-    <lastmod>2020-02-13T06:56:36.784Z</lastmod>
+    <lastmod>2020-03-18T04:45:04.701Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
+    <loc>https://zhongjiajie.com/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/</loc>
     
-    <lastmod>2020-01-17T10:51:10.059Z</lastmod>
+    <lastmod>2020-03-18T04:44:15.706Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/</loc>
+    
+    <lastmod>2020-03-18T04:44:04.929Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/</loc>
+    
+    <lastmod>2020-03-18T04:43:35.895Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/</loc>
+    
+    <lastmod>2020-03-18T04:43:21.942Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</loc>
+    
+    <lastmod>2020-03-18T04:05:29.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+    
+    <lastmod>2020-03-18T04:03:40.622Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2020/02/13/GithubAPI%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4Gitalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/</loc>
+    
+    <lastmod>2020-03-18T04:00:59.192Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://zhongjiajie.com/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/</loc>
     
-    <lastmod>2019-07-06T04:43:41.707Z</lastmod>
+    <lastmod>2020-03-18T04:00:50.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/</loc>
+    
+    <lastmod>2020-03-18T04:00:47.043Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/</loc>
+    
+    <lastmod>2020-03-18T04:00:43.523Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2020-03-18T04:00:34.922Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2020-03-18T04:00:30.947Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2020-03-18T04:00:21.564Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/</loc>
+    
+    <lastmod>2020-03-18T04:00:05.523Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhongjiajie.com/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/</loc>
+    
+    <lastmod>2020-03-18T03:59:53.232Z</lastmod>
     
   </url>
   
@@ -58,13 +142,6 @@
   </url>
   
   <url>
-    <loc>https://zhongjiajie.com/about/index.html</loc>
-    
-    <lastmod>2019-05-27T09:53:58.819Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhongjiajie.com/categories/index.html</loc>
     
     <lastmod>2019-05-27T09:53:58.819Z</lastmod>
@@ -72,79 +149,9 @@
   </url>
   
   <url>
-    <loc>https://zhongjiajie.com/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/</loc>
+    <loc>https://zhongjiajie.com/about/index.html</loc>
     
-    <lastmod>2019-05-27T09:53:58.818Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.818Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.817Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.817Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.815Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.813Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.807Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.807Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.803Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/</loc>
-    
-    <lastmod>2019-05-27T09:53:58.803Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhongjiajie.com/404.html</loc>
-    
-    <lastmod>2019-05-27T09:53:58.802Z</lastmod>
+    <lastmod>2019-05-27T09:53:58.819Z</lastmod>
     
   </url>
   
