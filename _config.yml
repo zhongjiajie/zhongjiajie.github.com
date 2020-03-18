@@ -86,8 +86,9 @@ leancloud_counter_security:
   enable_sync: true
   app_id: MroSKrxiIPS8TnCusPDEjoI5-gzGzoHsz
   app_key: kEGSDN65GzDBLLCwDQ1m0BcB
+  server_url: https://leancloud.cn
   username: admin
-  password:
+  password: zhongjiajie
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
