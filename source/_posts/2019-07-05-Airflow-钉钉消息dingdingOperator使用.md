@@ -125,8 +125,6 @@ dag = DAG(
 
 以上,希望大家可以更加方便的使用dingding发送系统消息.
 
----
-
 [1]: https://airflow.apache.org/changelog.html#airflow-1-10-3-2019-04-09
 [2]: https://github.com/apache/airflow/blob/master/airflow/operators/email_operator.py
 [3]: https://github.com/apache/airflow/blob/master/airflow/operators/slack_operator.py

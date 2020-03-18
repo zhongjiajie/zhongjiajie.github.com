@@ -74,8 +74,6 @@ hexo generate
 hexo deploy
 ```
 
----
-
 [1]: https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/#authenticating-using-query-parameters
 [2]: https://github.com/gitalk/gitalk/issues/343
 [3]: https://github.com/gitalk/gitalk/pull/344
