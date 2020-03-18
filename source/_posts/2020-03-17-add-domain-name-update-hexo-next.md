@@ -40,6 +40,12 @@ npm install
 
 不想要太多的动态效果，所以切换了主题到Pisces，这样右侧栏就没有动态效果了
 
+## Gitalk修改成自定义的域名
+
+修改成了个人域名后gitalk自动创建失效了，通过[相关ISSUE][5]找到了是因为改了域名导致的，只要将域名进行相应的修改就能重新使用了，修改后的情况如下
+
+![gitalk-self-domain](gitalk-self-domain.png)
+
 ## 增加了个人twitter
 
 twitter没有怎么玩，但是因为要接触apache社区，所以以开通并且放出来了。久不久登陆上去，顺便学习学习英文
@@ -87,3 +93,4 @@ categories:
 [2]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md
 [3]: https://github.com/zhongjiajie/zhongjiajie.github.com/blob/source/README.md
 [4]: https://theme-next.org/docs/third-party-services/search-services
+[5]: https://github.com/gitalk/gitalk/issues/115
