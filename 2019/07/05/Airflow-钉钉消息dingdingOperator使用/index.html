@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhongjiajie.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"ture","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zhongjiajie.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"K025DKYCED","apiKey":"c9c30a7ee8ceef20bf230d032f02f412","indexName":"github-page","hits":{"per_page":13},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Airflow 发送钉钉消息的 dingdingOperator 已经随着 Airflow 1.10.3 一起发布了, 有了 dingdingOperator 我们可以在 Airflow 中更优雅地发送钉钉消息,以及 任务 失败 成功 重试 sla过时等的通知. 背景在较久之前,Airflow对消息系统的支持仅仅是email以及slack.国内习惯使用IM系统作为通知,email一般比较少.sla">
@@ -29,7 +29,7 @@
 <meta property="og:description" content="Airflow 发送钉钉消息的 dingdingOperator 已经随着 Airflow 1.10.3 一起发布了, 有了 dingdingOperator 我们可以在 Airflow 中更优雅地发送钉钉消息,以及 任务 失败 成功 重试 sla过时等的通知. 背景在较久之前,Airflow对消息系统的支持仅仅是email以及slack.国内习惯使用IM系统作为通知,email一般比较少.sla">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-05T12:04:25.000Z">
-<meta property="article:modified_time" content="2020-03-18T04:00:50.394Z">
+<meta property="article:modified_time" content="2020-03-18T12:18:28.543Z">
 <meta property="article:author" content="zhongjiajie">
 <meta name="twitter:card" content="summary">
 
@@ -178,21 +178,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+    
   </div>
 </div>
 
@@ -252,7 +249,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-18 12:00:50" itemprop="dateModified" datetime="2020-03-18T12:00:50+08:00">2020-03-18</time>
+                <time title="修改时间：2020-03-18 20:18:28" itemprop="dateModified" datetime="2020-03-18T20:18:28+08:00">2020-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -318,7 +315,6 @@
 <li>如果任务失败会还会<a href="https://github.com/apache/airflow/blob/2b366934cdc20e8fb60b4b1e7b6c840a6708b258/airflow/models/taskinstance.py#L1057-L1058" target="_blank" rel="noopener">增加exception属性</a></li>
 </ul>
 <p>以上,希望大家可以更加方便的使用dingding发送系统消息.</p>
-<hr>
 
     </div>
 
@@ -615,7 +611,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 
