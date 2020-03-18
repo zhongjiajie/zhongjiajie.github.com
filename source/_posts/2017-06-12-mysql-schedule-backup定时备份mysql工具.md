@@ -2,8 +2,8 @@
 title: mysql_schedule_backup定时备份mysql工具
 date: 2017-06-12 20:22:25
 categories:
-- mysql
-- python
+  - [MySQL]
+  - [Python]
 ---
 
 [mysql_schedule_backup](https://github.com/zhongjiajie/mysql_schedule_backup)是定时、全量备份指定mysql数据库的程序。可设置是否压缩备份文件、备份文件保留的天数。
