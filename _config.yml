@@ -90,6 +90,12 @@ leancloud_counter_security:
   username: admin
   password: zhongjiajie
 
+algolia:
+  applicationID: 'K025DKYCED'
+  apiKey: 'c9c30a7ee8ceef20bf230d032f02f412'
+  indexName: 'github-page'
+  chunkSize: 5000
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

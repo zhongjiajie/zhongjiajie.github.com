@@ -74,9 +74,9 @@ categories:
 
 之前文章存在较多的markdown语法错误，比如多次引用一个`#`，结尾没有空行，引用代码有误等，现在已经全部修正
 
-### 修复local serach
+### ~~修复local serach~~使用algolia search
 
-发现local search失效了，现在已经将其修复
+~~发现local search失效了，现在已经将其修复~~，不知道为什么local search一直是失效的，使用next推荐的第一个搜索algolia search，详细配置见[next-search-services][4]
 
 ## TODO
 
@@ -86,3 +86,4 @@ categories:
 [1]: http://zhongjiajie.com/
 [2]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md
 [3]: https://github.com/zhongjiajie/zhongjiajie.github.com/blob/source/README.md
+[4]: https://theme-next.org/docs/third-party-services/search-services
