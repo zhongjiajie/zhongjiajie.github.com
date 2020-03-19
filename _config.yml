@@ -100,7 +100,9 @@ algolia:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   - type: git
-    repo: git@github.com:zhongjiajie/zhongjiajie.github.com.git
+    repository:
+      Github: git@github.com:zhongjiajie/zhongjiajie.github.com.git
+      Coding: git@e.coding.net:zhongjiajie/zhongjiajie.git
     branch: master
   - type: leancloud_counter_security_sync
 
