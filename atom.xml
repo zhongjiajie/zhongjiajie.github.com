@@ -5,9 +5,9 @@
   <subtitle>My personal blog and wiki</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://zhongjiajie.com/"/>
+  <link href="http://zhongjiajie.com/"/>
   <updated>2020-03-19T06:38:20.587Z</updated>
-  <id>https://zhongjiajie.com/</id>
+  <id>http://zhongjiajie.com/</id>
   
   <author>
     <name>zhongjiajie</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>博客大版本更新</title>
-    <link href="https://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/"/>
-    <id>https://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/</id>
+    <link href="http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/"/>
+    <id>http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/</id>
     <published>2020-03-17T12:08:23.000Z</published>
     <updated>2020-03-19T06:38:20.587Z</updated>
     
@@ -32,15 +32,15 @@
     </summary>
     
     
-      <category term="Blog" scheme="https://zhongjiajie.com/categories/Blog/"/>
+      <category term="Blog" scheme="http://zhongjiajie.com/categories/Blog/"/>
     
     
   </entry>
   
   <entry>
     <title>GithubAPI更新导致Gitalk触发持续邮件提醒</title>
-    <link href="https://zhongjiajie.com/2020/02/13/GithubAPI%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4Gitalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/"/>
-    <id>https://zhongjiajie.com/2020/02/13/GithubAPI%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4Gitalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/</id>
+    <link href="http://zhongjiajie.com/2020/02/13/GithubAPI%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4Gitalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/"/>
+    <id>http://zhongjiajie.com/2020/02/13/GithubAPI%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4Gitalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/</id>
     <published>2020-02-13T07:02:46.000Z</published>
     <updated>2020-03-18T12:18:18.075Z</updated>
     
@@ -53,17 +53,17 @@
     </summary>
     
     
-      <category term="Blog" scheme="https://zhongjiajie.com/categories/Blog/"/>
+      <category term="Blog" scheme="http://zhongjiajie.com/categories/Blog/"/>
     
-      <category term="Github" scheme="https://zhongjiajie.com/categories/Github/"/>
+      <category term="Github" scheme="http://zhongjiajie.com/categories/Github/"/>
     
     
   </entry>
   
   <entry>
     <title>2019年度总结-在路上</title>
-    <link href="https://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/"/>
-    <id>https://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/</id>
+    <link href="http://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/"/>
+    <id>http://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/</id>
     <published>2020-02-01T10:50:41.000Z</published>
     <updated>2020-03-18T12:18:23.192Z</updated>
     
@@ -76,15 +76,15 @@
     </summary>
     
     
-      <category term="年度总结" scheme="https://zhongjiajie.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+      <category term="年度总结" scheme="http://zhongjiajie.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
     
   </entry>
   
   <entry>
     <title>Airflow-钉钉消息dingdingOperator使用</title>
-    <link href="https://zhongjiajie.com/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/"/>
-    <id>https://zhongjiajie.com/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/</id>
+    <link href="http://zhongjiajie.com/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/"/>
+    <id>http://zhongjiajie.com/2019/07/05/Airflow-%E9%92%89%E9%92%89%E6%B6%88%E6%81%AFdingdingOperator%E4%BD%BF%E7%94%A8/</id>
     <published>2019-07-05T12:04:25.000Z</published>
     <updated>2020-03-18T12:18:28.543Z</updated>
     
@@ -99,15 +99,15 @@
     </summary>
     
     
-      <category term="Airflow" scheme="https://zhongjiajie.com/categories/Airflow/"/>
+      <category term="Airflow" scheme="http://zhongjiajie.com/categories/Airflow/"/>
     
     
   </entry>
   
   <entry>
     <title>Airflow 用户指南</title>
-    <link href="https://zhongjiajie.com/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/"/>
-    <id>https://zhongjiajie.com/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/</id>
+    <link href="http://zhongjiajie.com/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/"/>
+    <id>http://zhongjiajie.com/2019/04/05/Airflow-%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/</id>
     <published>2019-04-05T11:35:36.000Z</published>
     <updated>2020-03-18T04:00:47.043Z</updated>
     
@@ -120,15 +120,15 @@
     </summary>
     
     
-      <category term="Airflow" scheme="https://zhongjiajie.com/categories/Airflow/"/>
+      <category term="Airflow" scheme="http://zhongjiajie.com/categories/Airflow/"/>
     
     
   </entry>
   
   <entry>
     <title>如何加入Apache Airflow slack中国用户频道</title>
-    <link href="https://zhongjiajie.com/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/"/>
-    <id>https://zhongjiajie.com/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/</id>
+    <link href="http://zhongjiajie.com/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/"/>
+    <id>http://zhongjiajie.com/2019/04/04/%E5%A6%82%E4%BD%95%E5%8A%A0%E5%85%A5Apache-Airflow-slack%E4%B8%AD%E5%9B%BD%E7%94%A8%E6%88%B7%E9%A2%91%E9%81%93/</id>
     <published>2019-04-04T14:09:26.000Z</published>
     <updated>2020-03-18T04:00:43.523Z</updated>
     
@@ -141,15 +141,15 @@
     </summary>
     
     
-      <category term="Airflow" scheme="https://zhongjiajie.com/categories/Airflow/"/>
+      <category term="Airflow" scheme="http://zhongjiajie.com/categories/Airflow/"/>
     
     
   </entry>
   
   <entry>
     <title>&#39;工资突然崩塌式下降是什么感受&#39;有感</title>
-    <link href="https://zhongjiajie.com/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/"/>
-    <id>https://zhongjiajie.com/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/</id>
+    <link href="http://zhongjiajie.com/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/"/>
+    <id>http://zhongjiajie.com/2019/01/17/%E5%B7%A5%E8%B5%84%E7%AA%81%E7%84%B6%E5%B4%A9%E5%A1%8C%E5%BC%8F%E4%B8%8B%E9%99%8D%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%9F%E5%8F%97-%E6%9C%89%E6%84%9F/</id>
     <published>2019-01-17T00:51:33.000Z</published>
     <updated>2020-03-18T04:44:15.706Z</updated>
     
@@ -162,17 +162,17 @@
     </summary>
     
     
-      <category term="生活" scheme="https://zhongjiajie.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://zhongjiajie.com/categories/%E7%94%9F%E6%B4%BB/"/>
     
-      <category term="感悟" scheme="https://zhongjiajie.com/categories/%E6%84%9F%E6%82%9F/"/>
+      <category term="感悟" scheme="http://zhongjiajie.com/categories/%E6%84%9F%E6%82%9F/"/>
     
     
   </entry>
   
   <entry>
     <title>2018年度总结-我还是小学生</title>
-    <link href="https://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
-    <id>https://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</id>
+    <link href="http://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    <id>http://zhongjiajie.com/2019/01/11/2018%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</id>
     <published>2019-01-11T14:21:38.000Z</published>
     <updated>2020-03-18T04:00:34.922Z</updated>
     
@@ -185,15 +185,15 @@
     </summary>
     
     
-      <category term="年度总结" scheme="https://zhongjiajie.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+      <category term="年度总结" scheme="http://zhongjiajie.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
     
   </entry>
   
   <entry>
     <title>shadowsocks使用技巧</title>
-    <link href="https://zhongjiajie.com/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>https://zhongjiajie.com/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
+    <link href="http://zhongjiajie.com/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://zhongjiajie.com/2018/04/01/shadowsocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2018-04-01T06:53:07.000Z</published>
     <updated>2020-03-18T04:03:40.622Z</updated>
     
@@ -209,17 +209,17 @@
     </summary>
     
     
-      <category term="Shadowsocks" scheme="https://zhongjiajie.com/categories/Shadowsocks/"/>
+      <category term="Shadowsocks" scheme="http://zhongjiajie.com/categories/Shadowsocks/"/>
     
-      <category term="配置" scheme="https://zhongjiajie.com/categories/%E9%85%8D%E7%BD%AE/"/>
+      <category term="配置" scheme="http://zhongjiajie.com/categories/%E9%85%8D%E7%BD%AE/"/>
     
     
   </entry>
   
   <entry>
     <title>ubuntu常用软件安装和配置</title>
-    <link href="https://zhongjiajie.com/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
-    <id>https://zhongjiajie.com/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</id>
+    <link href="http://zhongjiajie.com/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
+    <id>http://zhongjiajie.com/2018/04/01/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</id>
     <published>2018-04-01T06:50:11.000Z</published>
     <updated>2020-03-18T04:00:30.947Z</updated>
     
@@ -235,15 +235,15 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://zhongjiajie.com/categories/Linux/"/>
+      <category term="Linux" scheme="http://zhongjiajie.com/categories/Linux/"/>
     
     
   </entry>
   
   <entry>
     <title>git 常用命令</title>
-    <link href="https://zhongjiajie.com/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://zhongjiajie.com/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <link href="http://zhongjiajie.com/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://zhongjiajie.com/2017/10/24/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2017-10-24T03:25:28.000Z</published>
     <updated>2020-03-18T04:00:21.564Z</updated>
     
@@ -257,15 +257,15 @@
     </summary>
     
     
-      <category term="Git" scheme="https://zhongjiajie.com/categories/Git/"/>
+      <category term="Git" scheme="http://zhongjiajie.com/categories/Git/"/>
     
     
   </entry>
   
   <entry>
     <title>用github管理blog</title>
-    <link href="https://zhongjiajie.com/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/"/>
-    <id>https://zhongjiajie.com/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/</id>
+    <link href="http://zhongjiajie.com/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/"/>
+    <id>http://zhongjiajie.com/2017/10/23/%E7%94%A8github%E7%AE%A1%E7%90%86blog/</id>
     <published>2017-10-23T13:47:43.000Z</published>
     <updated>2020-03-18T04:44:04.929Z</updated>
     
@@ -283,17 +283,17 @@
     </summary>
     
     
-      <category term="Blog" scheme="https://zhongjiajie.com/categories/Blog/"/>
+      <category term="Blog" scheme="http://zhongjiajie.com/categories/Blog/"/>
     
-      <category term="Github" scheme="https://zhongjiajie.com/categories/Github/"/>
+      <category term="Github" scheme="http://zhongjiajie.com/categories/Github/"/>
     
     
   </entry>
   
   <entry>
     <title>pypi安装包制作及发布</title>
-    <link href="https://zhongjiajie.com/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/"/>
-    <id>https://zhongjiajie.com/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/</id>
+    <link href="http://zhongjiajie.com/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/"/>
+    <id>http://zhongjiajie.com/2017/10/21/pypi%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%B6%E4%BD%9C%E5%8F%8A%E5%8F%91%E5%B8%83/</id>
     <published>2017-10-21T03:07:26.000Z</published>
     <updated>2020-03-18T04:43:35.895Z</updated>
     
@@ -306,17 +306,17 @@
     </summary>
     
     
-      <category term="Python" scheme="https://zhongjiajie.com/categories/Python/"/>
+      <category term="Python" scheme="http://zhongjiajie.com/categories/Python/"/>
     
-      <category term="pypi" scheme="https://zhongjiajie.com/categories/pypi/"/>
+      <category term="pypi" scheme="http://zhongjiajie.com/categories/pypi/"/>
     
     
   </entry>
   
   <entry>
     <title>美女图片API</title>
-    <link href="https://zhongjiajie.com/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/"/>
-    <id>https://zhongjiajie.com/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/</id>
+    <link href="http://zhongjiajie.com/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/"/>
+    <id>http://zhongjiajie.com/2017/08/30/%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87API/</id>
     <published>2017-08-30T01:50:40.000Z</published>
     <updated>2020-03-18T04:00:05.523Z</updated>
     
@@ -329,15 +329,15 @@
     </summary>
     
     
-      <category term="爬虫" scheme="https://zhongjiajie.com/categories/%E7%88%AC%E8%99%AB/"/>
+      <category term="爬虫" scheme="http://zhongjiajie.com/categories/%E7%88%AC%E8%99%AB/"/>
     
     
   </entry>
   
   <entry>
     <title>算法相关</title>
-    <link href="https://zhongjiajie.com/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
-    <id>https://zhongjiajie.com/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/</id>
+    <link href="http://zhongjiajie.com/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/"/>
+    <id>http://zhongjiajie.com/2017/07/26/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/</id>
     <published>2017-07-26T08:56:31.000Z</published>
     <updated>2020-03-18T04:43:21.942Z</updated>
     
@@ -350,15 +350,15 @@
     </summary>
     
     
-      <category term="算法" scheme="https://zhongjiajie.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://zhongjiajie.com/categories/%E7%AE%97%E6%B3%95/"/>
     
     
   </entry>
   
   <entry>
     <title>sql实现小记</title>
-    <link href="https://zhongjiajie.com/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/"/>
-    <id>https://zhongjiajie.com/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/</id>
+    <link href="http://zhongjiajie.com/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://zhongjiajie.com/2017/06/24/sql%E5%AE%9E%E7%8E%B0%E5%B0%8F%E8%AE%B0/</id>
     <published>2017-06-24T09:08:41.000Z</published>
     <updated>2020-03-18T03:59:53.232Z</updated>
     
@@ -371,15 +371,15 @@
     </summary>
     
     
-      <category term="SQL" scheme="https://zhongjiajie.com/categories/SQL/"/>
+      <category term="SQL" scheme="http://zhongjiajie.com/categories/SQL/"/>
     
     
   </entry>
   
   <entry>
     <title>mysql_schedule_backup定时备份mysql工具</title>
-    <link href="https://zhongjiajie.com/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/"/>
-    <id>https://zhongjiajie.com/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</id>
+    <link href="http://zhongjiajie.com/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/"/>
+    <id>http://zhongjiajie.com/2017/06/12/mysql-schedule-backup%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BDmysql%E5%B7%A5%E5%85%B7/</id>
     <published>2017-06-12T12:22:25.000Z</published>
     <updated>2020-03-18T04:05:29.446Z</updated>
     
@@ -392,9 +392,9 @@
     </summary>
     
     
-      <category term="MySQL" scheme="https://zhongjiajie.com/categories/MySQL/"/>
+      <category term="MySQL" scheme="http://zhongjiajie.com/categories/MySQL/"/>
     
-      <category term="Python" scheme="https://zhongjiajie.com/categories/Python/"/>
+      <category term="Python" scheme="http://zhongjiajie.com/categories/Python/"/>
     
     
   </entry>
