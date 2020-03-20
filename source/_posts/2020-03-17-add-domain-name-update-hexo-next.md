@@ -11,7 +11,7 @@ categories:
 
 ## 个人域名
 
-写博客的时候就有考虑顾是否要买个人域名，当时担心自己只是玩玩，所以一直没有买，现在转眼间已经毕业两年多了，还是想在互联网留下点属于自己的东西，所以近期在万网买了一个域名，从此我也是有域名的人了。哈哈，欢迎大家[常来看看][1]
+写博客的时候就有考虑顾是否要买个人域名，当时担心自己只是玩玩，所以一直没有买，现在转眼间已经毕业两年多了，还是想在互联网留下点属于自己的东西，所以近期在万网买了一个域名，从此我也是有域名的人了。哈哈，欢迎大家[常来看看][1]。如何证明解析已经成功了呢？当你输入github page的地址可以自动跳转到你的域名时就证明成功了。例如我的[zhongjiajie.github.io][7]可以跳转到[zhongjiajie.com][1]。
 
 ## Github和Coding双线部署
 
@@ -37,6 +37,10 @@ npm outdated
 npm update
 npm install
 ```
+
+## Google和百度SEO
+
+买了个人域名自然想到增加网站的曝光度，那就是国内的[百度站长][8]和国外的[谷歌站长][9]了。百度使用了`hexo-generator-baidu-sitemap`以及`hexo-baidu-url-submit`进行被动的sitemap抓取和主动的推送抓取（这里我把`sitemap.xml`和`baidusitemap.xml`都放了进去）。谷歌直接使用sitemap被动抓取，但是由于之前谷歌放了旧网址，所以先要将其删除。
 
 ## 删除了Hexo-tag
 
@@ -94,13 +98,12 @@ categories:
 
 ~~发现local search失效了，现在已经将其修复~~，不知道为什么local search一直是失效的，使用NexT推荐的第一个搜索algolia search，详细配置见[NexT-search-services][4]
 
-## TODO
-
-* 做好百度的seo增加博客曝光度
-
 [1]: http://zhongjiajie.com/
 [2]: https://github.com/theme-NexT/Hexo-theme-NexT/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md
 [3]: https://github.com/zhongjiajie/zhongjiajie.github.com/blob/source/README.md
 [4]: https://theme-NexT.org/docs/third-party-services/search-services
 [5]: https://github.com/gitalk/gitalk/issues/115
 [6]: https://help.coding.net/docs/devops/cd/static-website.html#pageTitle
+[7]: zhongjiajie.github.io
+[8]: https://ziyuan.baidu.com
+[9]: https://www.google.com/webmasters

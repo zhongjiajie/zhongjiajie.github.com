@@ -12,7 +12,7 @@ language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://zhongjiajie.com
+url: http://zhongjiajie.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -20,14 +20,13 @@ permalink_defaults:
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - CNAME
-  - baidu_verify_0O5kj41UWV.html
+  - baidu_verify_fGbHSwgZ2h.html
   - google0ed1f9ed06485947.html
   - README.md
 
@@ -96,6 +95,12 @@ algolia:
   indexName: 'github-page'
   chunkSize: 5000
 
+baidu_url_submit:
+  count: 1000
+  host: zhongjiajie.com
+  token: QWjMoWlIul79GDMt
+  path: baidu_urls.txt
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -105,6 +110,7 @@ deploy:
       Coding: git@e.coding.net:zhongjiajie/zhongjiajie.git
     branch: master
   - type: leancloud_counter_security_sync
+  - type: baidu_url_submitter
 
 # Other setting
 # search
