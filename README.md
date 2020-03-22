@@ -56,6 +56,7 @@ hexo deploy
 * github_banner
 * since
 * needmoreshare(手动新增配置)
+* themes/next/layout/_macro/sidebar.swig  themes/next/layout/_third-party/comments/gitalk.swig  (谷歌广告)
 
 ### Hexo
 

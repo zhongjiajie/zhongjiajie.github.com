@@ -29,6 +29,7 @@ skip_render:
   - baidu_verify_fGbHSwgZ2h.html
   - google0ed1f9ed06485947.html
   - README.md
+  - ads.txt
 
 # Writing
 new_post_name: :year-:month-:day-:title.md # File name of new posts
