@@ -16,8 +16,6 @@
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
-<script data-ad-client="ca-pub-8003705208802765" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"zhongjiajie.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"K025DKYCED","apiKey":"c9c30a7ee8ceef20bf230d032f02f412","indexName":"github-page","hits":{"per_page":13},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
@@ -33,7 +31,7 @@
 <meta property="og:image" content="http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/aliyun-dns.png">
 <meta property="og:image" content="http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/gitalk-self-domain.png">
 <meta property="article:published_time" content="2020-03-17T12:08:23.000Z">
-<meta property="article:modified_time" content="2020-03-19T06:38:20.587Z">
+<meta property="article:modified_time" content="2020-03-20T12:07:36.665Z">
 <meta property="article:author" content="zhongjiajie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/aliyun-dns.png">
@@ -254,7 +252,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-19 14:38:20" itemprop="dateModified" datetime="2020-03-19T14:38:20+08:00">2020-03-19</time>
+                <time title="修改时间：2020-03-20 20:07:36" itemprop="dateModified" datetime="2020-03-20T20:07:36+08:00">2020-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -295,6 +293,7 @@
 <h2 id="更新了NexT相关组件到最新版"><a href="#更新了NexT相关组件到最新版" class="headerlink" title="更新了NexT相关组件到最新版"></a>更新了NexT相关组件到最新版</h2><p>更新过程如下</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm outdated</span><br><span class="line"><span class="comment"># 将 package.json 中限制版本的 ^ 去掉</span></span><br><span class="line">npm update</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
+<h2 id="Google和百度SEO"><a href="#Google和百度SEO" class="headerlink" title="Google和百度SEO"></a>Google和百度SEO</h2><p>买了个人域名自然想到增加网站的曝光度，那就是国内的<a href="https://ziyuan.baidu.com" target="_blank" rel="noopener">百度站长</a>和国外的<a href="https://www.google.com/webmasters" target="_blank" rel="noopener">谷歌站长</a>了。百度使用了<code>hexo-generator-baidu-sitemap</code>以及<code>hexo-baidu-url-submit</code>进行被动的sitemap抓取和主动的推送抓取（这里我把<code>sitemap.xml</code>和<code>baidusitemap.xml</code>都放了进去）。谷歌直接使用sitemap被动抓取，但是由于之前谷歌放了旧网址，所以先要将其删除。</p>
 <h2 id="删除了Hexo-tag"><a href="#删除了Hexo-tag" class="headerlink" title="删除了Hexo-tag"></a>删除了Hexo-tag</h2><p>由于博客内容没有很多，所以删除了标签，直接使用分类对文章进行区分，并且隐藏了页面中的标签页</p>
 <h2 id="切换了主题至Pisces"><a href="#切换了主题至Pisces" class="headerlink" title="切换了主题至Pisces"></a>切换了主题至Pisces</h2><p>不想要太多的动态效果，所以切换了主题到Pisces，这样右侧栏就没有动态效果了</p>
 <h2 id="Gitalk修改成自定义的域名"><a href="#Gitalk修改成自定义的域名" class="headerlink" title="Gitalk修改成自定义的域名"></a>Gitalk修改成自定义的域名</h2><p>修改成了个人域名后gitalk自动创建失效了，通过<a href="https://github.com/gitalk/gitalk/issues/115" target="_blank" rel="noopener">相关ISSUE</a>找到了是因为改了域名导致的，只要将域名进行相应的修改就能重新使用了，修改后的情况如下</p>
@@ -308,9 +307,6 @@
 
 <h3 id="修改了markdown相关的错误"><a href="#修改了markdown相关的错误" class="headerlink" title="修改了markdown相关的错误"></a>修改了markdown相关的错误</h3><p>之前文章存在较多的markdown语法错误，比如多次引用一个<code>#</code>，结尾没有空行，引用代码有误等，现在已经全部修正</p>
 <h3 id="修复local-serach使用algolia-search"><a href="#修复local-serach使用algolia-search" class="headerlink" title="修复local serach使用algolia search"></a><del>修复local serach</del>使用algolia search</h3><p><del>发现local search失效了，现在已经将其修复</del>，不知道为什么local search一直是失效的，使用NexT推荐的第一个搜索algolia search，详细配置见<a href="https://theme-NexT.org/docs/third-party-services/search-services" target="_blank" rel="noopener">NexT-search-services</a></p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
-<li>做好百度的seo增加博客曝光度</li>
-</ul>
 
     </div>
 
@@ -410,7 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人域名"><span class="nav-number">1.</span> <span class="nav-text">个人域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github和Coding双线部署"><span class="nav-number">2.</span> <span class="nav-text">Github和Coding双线部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新NexT到最新版"><span class="nav-number">3.</span> <span class="nav-text">更新NexT到最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新Hexo至最新版"><span class="nav-number">4.</span> <span class="nav-text">更新Hexo至最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新了NexT相关组件到最新版"><span class="nav-number">5.</span> <span class="nav-text">更新了NexT相关组件到最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除了Hexo-tag"><span class="nav-number">6.</span> <span class="nav-text">删除了Hexo-tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换了主题至Pisces"><span class="nav-number">7.</span> <span class="nav-text">切换了主题至Pisces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitalk修改成自定义的域名"><span class="nav-number">8.</span> <span class="nav-text">Gitalk修改成自定义的域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加了个人twitter"><span class="nav-number">9.</span> <span class="nav-text">增加了个人twitter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文章使用英文避免链接encodeRUI编码"><span class="nav-number">10.</span> <span class="nav-text">创建文章使用英文避免链接encodeRUI编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修复了很多之前博客的错误"><span class="nav-number">11.</span> <span class="nav-text">修复了很多之前博客的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片显示的错误"><span class="nav-number">11.1.</span> <span class="nav-text">图片显示的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除了重复的文章标题名"><span class="nav-number">11.2.</span> <span class="nav-text">删除了重复的文章标题名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用正确的多个分类方式"><span class="nav-number">11.3.</span> <span class="nav-text">使用正确的多个分类方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改了markdown相关的错误"><span class="nav-number">11.4.</span> <span class="nav-text">修改了markdown相关的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复local-serach使用algolia-search"><span class="nav-number">11.5.</span> <span class="nav-text">修复local serach使用algolia search</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">12.</span> <span class="nav-text">TODO</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人域名"><span class="nav-number">1.</span> <span class="nav-text">个人域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github和Coding双线部署"><span class="nav-number">2.</span> <span class="nav-text">Github和Coding双线部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新NexT到最新版"><span class="nav-number">3.</span> <span class="nav-text">更新NexT到最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新Hexo至最新版"><span class="nav-number">4.</span> <span class="nav-text">更新Hexo至最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新了NexT相关组件到最新版"><span class="nav-number">5.</span> <span class="nav-text">更新了NexT相关组件到最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google和百度SEO"><span class="nav-number">6.</span> <span class="nav-text">Google和百度SEO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除了Hexo-tag"><span class="nav-number">7.</span> <span class="nav-text">删除了Hexo-tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换了主题至Pisces"><span class="nav-number">8.</span> <span class="nav-text">切换了主题至Pisces</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gitalk修改成自定义的域名"><span class="nav-number">9.</span> <span class="nav-text">Gitalk修改成自定义的域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加了个人twitter"><span class="nav-number">10.</span> <span class="nav-text">增加了个人twitter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文章使用英文避免链接encodeRUI编码"><span class="nav-number">11.</span> <span class="nav-text">创建文章使用英文避免链接encodeRUI编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修复了很多之前博客的错误"><span class="nav-number">12.</span> <span class="nav-text">修复了很多之前博客的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片显示的错误"><span class="nav-number">12.1.</span> <span class="nav-text">图片显示的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除了重复的文章标题名"><span class="nav-number">12.2.</span> <span class="nav-text">删除了重复的文章标题名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用正确的多个分类方式"><span class="nav-number">12.3.</span> <span class="nav-text">使用正确的多个分类方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改了markdown相关的错误"><span class="nav-number">12.4.</span> <span class="nav-text">修改了markdown相关的错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复local-serach使用algolia-search"><span class="nav-number">12.5.</span> <span class="nav-text">修复local serach使用algolia search</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -462,6 +458,18 @@
 
 
       </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- sidebar -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-8003705208802765"
+    data-ad-slot="3226670978"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
     </div>
   </aside>
@@ -639,6 +647,18 @@
       new needShareButton('#needsharebutton-float', flOptions);
   </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- post_tail -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8003705208802765"
+     data-ad-slot="2428594621"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <script>
 NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
