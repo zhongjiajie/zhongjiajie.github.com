@@ -58,6 +58,19 @@
       </div>
     {%- endif %}
   {%- endif %}
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- comment_tail -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8003705208802765"
+     data-ad-slot="2428594621"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 {%- endif %}
 
 <script>

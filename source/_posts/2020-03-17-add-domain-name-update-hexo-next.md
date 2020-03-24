@@ -56,13 +56,17 @@ npm install
 
 ![gitalk-self-domain](gitalk-self-domain.png)
 
-## 增加了个人twitter
+## 增加了个人twitter和微信在侧边栏
 
-twitter没有怎么玩，但是因为要接触apache社区，所以以开通并且放出来了。久不久登陆上去，顺便学习学习英文
+增加了个人微信在侧边栏。twitter没有怎么玩，但是因为要接触apache社区，所以以开通并且放出来了。久不久登陆上去，顺便学习学习英文。
 
 ## 创建文章使用英文避免链接encodeRUI编码
 
 之前的创建文章时都是使用中文，导致最后的连接含有中文会自动转成encodeRUI编码，现在统一使用`Hexo new "post-english-name"`避免了这样的情况发生
+
+## 增加了google adsence在侧边栏和评论页面结尾
+
+想要看看有么有人会点广告，能不能通过卖广告来增加收入，主要是穷……呵呵。主要参考了[这篇文章][10]
 
 ## 修复了很多之前博客的错误
 
@@ -107,3 +111,4 @@ categories:
 [7]: zhongjiajie.github.io
 [8]: https://ziyuan.baidu.com
 [9]: https://www.google.com/webmasters
+[10]: http://www.darylliu.cn/archives/6a1f6623.html

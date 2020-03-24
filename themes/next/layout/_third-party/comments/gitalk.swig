@@ -4,18 +4,6 @@
 
 {%- set gitalk_js_uri = theme.vendors.gitalk_js or '//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js' %}
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- post_tail -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-8003705208802765"
-     data-ad-slot="2428594621"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <script>
 NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
   NexT.utils.getScript('{{ gitalk_js_uri }}', () => {
