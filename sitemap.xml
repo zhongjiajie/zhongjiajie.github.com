@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhongjiajie.com/about/index.html</loc>
+    
+    <lastmod>2020-04-13T05:34:50.478Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/</loc>
     
     <lastmod>2020-03-24T04:52:12.164Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>http://zhongjiajie.com/images/manifest.json</loc>
     
     <lastmod>2019-05-27T09:53:58.823Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhongjiajie.com/about/index.html</loc>
-    
-    <lastmod>2019-05-27T09:53:58.819Z</lastmod>
     
   </url>
   
