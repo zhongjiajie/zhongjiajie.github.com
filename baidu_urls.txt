@@ -1,3 +1,4 @@
+http://zhongjiajie.com/2020/04/21/airflow-faq-and-useful-resource/
 http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/
 http://zhongjiajie.com/2020/02/13/GithubAPI%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4Gitalk%E8%A7%A6%E5%8F%91%E6%8C%81%E7%BB%AD%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92/
 http://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/
