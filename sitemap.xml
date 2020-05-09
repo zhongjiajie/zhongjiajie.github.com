@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhongjiajie.com/about/index.html</loc>
+    
+    <lastmod>2020-05-09T05:25:42.316Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhongjiajie.com/tags/index.html</loc>
     
     <lastmod>2020-05-09T05:20:38.928Z</lastmod>
@@ -30,23 +37,9 @@
   </url>
   
   <url>
-    <loc>http://zhongjiajie.com/about/index.html</loc>
-    
-    <lastmod>2020-05-09T05:20:38.921Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://zhongjiajie.com/2020/03/17/add-domain-name-update-hexo-next/</loc>
     
     <lastmod>2020-05-09T05:20:38.917Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhongjiajie.com/2020/02/01/2019%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93-%E5%9C%A8%E8%B7%AF%E4%B8%8A/</loc>
-    
-    <lastmod>2020-05-09T05:20:38.909Z</lastmod>
     
   </url>
   
