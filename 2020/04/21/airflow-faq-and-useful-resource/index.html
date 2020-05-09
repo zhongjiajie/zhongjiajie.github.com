@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social">
 <meta property="og:image" content="https://img.shields.io/badge/QQ%E7%BE%A4-178978627-blue.svg">
 <meta property="article:published_time" content="2020-04-21T01:48:05.000Z">
-<meta property="article:modified_time" content="2020-04-21T14:31:08.399Z">
+<meta property="article:modified_time" content="2020-05-09T05:20:38.921Z">
 <meta property="article:author" content="zhongjiajie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social">
@@ -244,10 +244,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-21 09:48:05 / 修改时间：22:31:08" itemprop="dateCreated datePublished" datetime="2020-04-21T09:48:05+08:00">2020-04-21</time>
+              <time title="创建时间：2020-04-21 09:48:05" itemprop="dateCreated datePublished" datetime="2020-04-21T09:48:05+08:00">2020-04-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-09 13:20:38" itemprop="dateModified" datetime="2020-05-09T13:20:38+08:00">2020-05-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -439,6 +445,7 @@ table th:nth-of-type(5) {
 <li>使用<a href="https://github.com/apache/airflow/blob/master/airflow/operators/subdag_operator.py" target="_blank" rel="noopener">SubDagOperator</a>。因为SubDagOperator可以将DAG文件切分成多个，且能实现依赖关系，相当于实现了DAG间的触发，详细可参考官网的例子。<a href="https://github.com/apache/airflow/blob/master/airflow/example_dags/example_subdag_operator.py" target="_blank" rel="noopener">example_subdag_operator</a>和<a href="https://github.com/apache/airflow/blob/master/airflow/example_dags/subdags/subdag.py" target="_blank" rel="noopener">subdag</a>。但是SubDagOperator本质是一个operator所有有很多局限性，可能出现的问题有：<strong>无并发控制 和 死锁</strong>详细问题见<a href="https://lists.apache.org/thread.html/0aec158c42662370c3e8dc210c1a2b5ec21278d85243e257c174a549%40%3Cdev.airflow.apache.org%3E" target="_blank" rel="noopener">mail-list</a>，这些问题在master分支代码中已经fix了，相关的[PR-5498]，但是一直没有release(截止Airflow-1.10.10都没有)。所以如果想要使用SubDagOperator来实现切分大DAG和DAG间依赖的同学要注意。优点是<strong>能在webserver联动</strong>，可以点击查看SubDagOperator</li>
 <li>使用<a href="https://github.com/apache/airflow/blob/master/airflow/operators/dagrun_operator.py" target="_blank" rel="noopener">TriggerDagRunOperator</a>。这也是个不错的解决方案，没有了SubDagOperator中存在的问题，但<strong>不能监控被触发DAG的状态</strong>，即不知道DAG是成功/失败/运行。这是因为使用<code>trigger_dag</code>方法触发别的DAG，只要触发了就标记task为成功。因为是只是一个Operator，没有放例子</li>
 <li>使用<a href="https://github.com/apache/airflow/blob/master/airflow/providers/http/sensors/http.py" target="_blank" rel="noopener">http-sensors</a>+<a href="https://github.com/apache/airflow/blob/97a429f9d0cf740c5698060ad55f11e93cb57b55/airflow/api/common/experimental/get_dag_run_state.py" target="_blank" rel="noopener">get_dag_run_state</a>API。这里理论可行，博主没有尝试过。SubDagOperator和TriggerDagRunOperator都是上有DAG主动触发下游DAG实现DAG间依赖的，这个方法是下游DAG主动监控上游DAG的状态实现DAG间依赖。<em>实现方式</em>是：下游DAG第一个task必须是http-sensors，调用Airflow自己的API<code>get_dag_run_state</code>，不断监控上游DAG的状态，如果成功才标记http-sensors为成功。但是这个解决方案也有问题，一是需要sensors一直监控（要资源）上游DAG状态（查询也要<strong>浪费资源</strong>），另一个是需要上下游DAG需要有<strong>差不多的schedule_interval</strong>。第一个很好理解，资源问题，第二个是为了保证上游DAG成功时立马调用下游。</li>
+<li>使用<a href="https://github.com/apache/airflow/blob/f3ad5cf6185b9d406d0fb0a4ecc0b5536f79217a/airflow/sensors/external_task_sensor.py" target="_blank" rel="noopener">ExternalTaskSensor</a></li>
 </ul>
 </li>
 </ul>
@@ -480,7 +487,7 @@ table th:nth-of-type(5) {
 <li><p><strong>社区追踪：</strong>Airflow社区准备重构REST API<a href="https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-32%3A+Airflow+REST+API" target="_blank" rel="noopener">AIP-32: Airflow REST API</a>，相信到AIP完成的时候不管文档还是易用性应该会有较大提高</p>
 </li>
 </ul>
-<h2 id="我想问的这里没有"><a href="#我想问的这里没有" class="headerlink" title="我想问的这里没有"></a>我想问的这里没有</h2><p>请核对是否按照<a href="#关键TIPS">关键TIPS</a>第三点顺序查找完了且没有相似问题，如果是，你有以下渠道反馈问题，越靠前越推荐</p>
+<h3 id="日志占用磁盘太多如何处理"><a href="#日志占用磁盘太多如何处理" class="headerlink" title="日志占用磁盘太多如何处理"></a>日志占用磁盘太多如何处理</h3><h2 id="我想问的这里没有"><a href="#我想问的这里没有" class="headerlink" title="我想问的这里没有"></a>我想问的这里没有</h2><p>请核对是否按照<a href="#关键TIPS">关键TIPS</a>第三点顺序查找完了且没有相似问题，如果是，你有以下渠道反馈问题，越靠前越推荐</p>
 <ul>
 <li>根据<a href="#帮忙改进文档">帮忙改进文档</a>中的指引，创建PR并在<a href="#问题汇总">问题汇总</a>最后面增加你的问题</li>
 <li>加入<a href="#相关讨论群">相关讨论群</a>寻找问题的解决方案，如果在群中得到解答，且觉得该问题应该包含在博文中，请根据第一点提PR</li>
@@ -604,7 +611,7 @@ table th:nth-of-type(5) {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键TIPS"><span class="nav-number">2.</span> <span class="nav-text">关键TIPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关讨论群"><span class="nav-number">3.</span> <span class="nav-text">相关讨论群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用连接"><span class="nav-number">4.</span> <span class="nav-text">实用连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题汇总"><span class="nav-number">5.</span> <span class="nav-text">问题汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DAG表的description字段不支持中文"><span class="nav-number">5.1.</span> <span class="nav-text">DAG表的description字段不支持中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSHOperator命令在retry和failed的时候不会终结"><span class="nav-number">5.2.</span> <span class="nav-text">SSHOperator命令在retry和failed的时候不会终结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-View页面无法加载"><span class="nav-number">5.3.</span> <span class="nav-text">Tree View页面无法加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现DAG之间的依赖"><span class="nav-number">5.4.</span> <span class="nav-text">实现DAG之间的依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REST触发DAG如何接收参数"><span class="nav-number">5.5.</span> <span class="nav-text">REST触发DAG如何接收参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我想问的这里没有"><span class="nav-number">6.</span> <span class="nav-text">我想问的这里没有</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期望"><span class="nav-number">7.</span> <span class="nav-text">期望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#帮忙改进文档"><span class="nav-number">8.</span> <span class="nav-text">帮忙改进文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timeline"><span class="nav-number">9.</span> <span class="nav-text">Timeline</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键TIPS"><span class="nav-number">2.</span> <span class="nav-text">关键TIPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关讨论群"><span class="nav-number">3.</span> <span class="nav-text">相关讨论群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用连接"><span class="nav-number">4.</span> <span class="nav-text">实用连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题汇总"><span class="nav-number">5.</span> <span class="nav-text">问题汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DAG表的description字段不支持中文"><span class="nav-number">5.1.</span> <span class="nav-text">DAG表的description字段不支持中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSHOperator命令在retry和failed的时候不会终结"><span class="nav-number">5.2.</span> <span class="nav-text">SSHOperator命令在retry和failed的时候不会终结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-View页面无法加载"><span class="nav-number">5.3.</span> <span class="nav-text">Tree View页面无法加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现DAG之间的依赖"><span class="nav-number">5.4.</span> <span class="nav-text">实现DAG之间的依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REST触发DAG如何接收参数"><span class="nav-number">5.5.</span> <span class="nav-text">REST触发DAG如何接收参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志占用磁盘太多如何处理"><span class="nav-number">5.6.</span> <span class="nav-text">日志占用磁盘太多如何处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我想问的这里没有"><span class="nav-number">6.</span> <span class="nav-text">我想问的这里没有</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#期望"><span class="nav-number">7.</span> <span class="nav-text">期望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#帮忙改进文档"><span class="nav-number">8.</span> <span class="nav-text">帮忙改进文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timeline"><span class="nav-number">9.</span> <span class="nav-text">Timeline</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
